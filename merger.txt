@@ -1,0 +1,38 @@
+driver.get("http://www.leaftaps.com/opentaps/control/logout");
+		
+		driver.findElementById("username").sendKeys("DemoSalesManager");
+		
+		driver.findElementById("password").sendKeys("crmsfa");
+		
+        driver.findElementByClassName("decorativeSubmit").click();
+        
+        driver.findElementByLinkText("CRM/SFA").click();
+        
+        driver.findElementByXPath("//a[text()='Leads']").click();
+        
+        driver.findElementByXPath("//a[text()='Merge Leads']").click();
+        
+        
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        
+        List<WebElement> icon = driver.findElements(By.xpath("//img[@alt='Lookup']"));
+       
+        icon.get(1).click();
+        Set <String> allwindows=driver.getWindowHandles();
+		List<String> windowlist=new ArrayList<String>();
+		windowlist.addAll(allwindows);
+		
+		
+		System.out.println(driver.getCurrentUrl());
+		System.out.println(driver.getTitle());
+        driver.switchTo().window(windowlist.get(0));
+        System.out.println(icon.size());
+        
+        driver.findElementByXPath("//input[@class=' x-form-text x-form-field ']").sendKeys("10142");
+        driver.findElementByXPath("//button[text()='Find Leads']").click();
+        driver.findElementByLinkText("10142").click();
+        
+        
+	}
+
+}

@@ -1,0 +1,2728 @@
+Generic Selenium Questions
+
+Question 1:
+What is Selenium?
+Answer:
+Selenium is a browser automation tool which lets you automated operations like - type, click, and selection from a drop down of a web page.
+
+Question 2:
+How is Selenium different from commercial browser automation tools?
+Answer:
+Selenium is a library which is available in a gamut of languages i.e. java, C#, python, ruby, php etc while most commercial tools are limited in their capabilities of being able to use just one language. More over many of those tools have their own proprietary language which is of little use outside the domain of those tools. Most commercial tools focus on record and replay while Selenium emphasis on using Selenium IDE (Selenium record and replay) tool only to get acquainted with Selenium working and then move on to more mature Selenium libraries like Remote control (Selenium 1.0) and Web Driver (Selenium 2.0).
+Though most commercial tools have built in capabilities of test reporting, error recovery mechanisms and Selenium does not provide any such features by default. But given the rich set of languages available with Selenium it very easy to emulate such features.
+
+Question3:
+What are the set of tools available with Selenium?
+Answer:
+Selenium has four set of tools - Selenium IDE, Selenium 1.0 (Selenium RC), Selenium 2.0 (WebDriver) and Selenium Grid. Selenium Core is another tool but since it is available as part of Selenium IDE as well as Selenium 1.0, it is not used in isolation.
+
+Question 4:
+Which Selenium Tool should I use?
+Answer:
+It entirely boils down to where you stand today in terms of using Selenium. If you are entirely new to Selenium then you should begin with Selenium IDE to learn Selenium location strategies and then move to Selenium 2 as it is the most stable Selenium library and future of Selenium. Use Selenium Grid when you want to distribute your test across multiple devices. If you are already using Selenium 1.0 than you should begin to migrate your test scripts to Selenium 2.0
+Question 5:
+What is Selenium IDE?
+Answer:
+Selenium IDE is a firefox plug-in which is (by and large) used to record and replay test is firefox browser. Selenium IDE can be used only with firefox browser.
+
+Question 6:
+Which language is used in Selenium IDE?
+Answer:
+Selenium IDE uses html sort of language called Selenese. Though other languages (java, c#, php etc) cannot be used with Selenium IDE, Selenium IDE lets you convert test in these languages so that they could be used with Selenium 1.0 or Selenium 2.0
+
+Question 7:
+What is Selenium 1.0?
+Answer:
+Selenium 1.0 or Selenium Remote Control (popularly known as Selenium RC) is library available in wide variety of languages. The primary reason of advent of Selenium RC was incapability of Selenium IDE to execute tests in browser other than Selenium IDE and the programmatical limitations of language Selenese used in Selenium IDE.
+
+Question 8:
+What is Selenium 2.0?
+Answer:
+Selenium 2.0 also known as WebDriver is the latest offering of Selenium. It provides
+?         better API than Selenium 1.0
+?         does not suffer from java script security restriction which Selenium 1.0 does
+?         supports more UI complicated UI operations like drag and drop
+
+Question 9:
+What are the element locators available with Selenium which could be used to locate elements on web page?
+Answer:
+There are mainly 4 locators used with Selenium -
+?         html id
+?         html name
+?         XPath locator and
+?         Css locators
+
+Question 10:
+What is Selenium Grid?
+Answer:
+Selenium grid lets you distribute your tests on multiple machines and all of them at the same time. Hence you can execute test on IE on Windows and Safari on Mac machine using the same test script (well, almost always). This greatly helps in reducing the time of test execution and provides quick feedback to stack holders.
+
+
+
+Selenium IDE Questions
+
+Question 11:
+What are two modes of views in Selenium IDE?
+Answer:
+Selenium IDE can be opened either in side bar (View > Side bar > Selenium IDE) or as a pop up window (Tools > Selenium IDE). While using Selenium IDE in browser side bar it cannot record user operations in a pop up window opened by application.
+
+Question 12:
+Can I control the speed and pause test execution in Selenium IDE?
+Answer:
+Selenium IDE provides a slider with Slow and Fast pointers to control the speed of execution.
+
+Question 13:
+Where do I see the results of Test Execution in Selenium IDE?
+Answer:
+Result of test execution can be views in log window in Selenium IDE -
+
+Question 14:
+Where do I see the description of commands used in Selenium IDE?
+Answer:
+Commands of description can be seen in Reference section -
+
+
+Question 15:
+Can I build test suite using Selenium IDE?
+Answer:
+Yes, you can first record individual test cases and then group all of them in a test suite. Following this entire test suite could be executed instead of executing individual tests.
+
+
+Question 16:
+What verification points are available with Selenium?
+Answer:
+There are largely three type of verification points available with Selenium -
+?         Check for page title
+?         Check for certain text
+?         Check for certain element (text box, drop down, table etc)
+
+
+Question 17:
+I see two types of check with Selenium - verification and assertion, what's the difference between tow?
+Answer:
+?         A verification check lets test execution continue even in the wake of failure with check, while assertion stops the test execution. Consider an example of checking text on page, you may like to use verification point and let test execution continue even if text is not present. But for a login page, you would like to add assertion for presence of text box login as it does not make sense continuing with test execution if login text box is not present.
+
+Question 18:
+I don't see check points added to my tests while using Selenium IDE?, how do I get them added to my tests?
+Answer:
+You need to use context menu to add check points to your Selenium IDE tests -
+
+
+Question 19:
+How do I edit tests in Selenium IDE?
+Answer:
+There are two ways to edit tests in Selenium IDE; one is the table view while other looking into the source code of recorded commands -
+
+ Question 20:
+What is syntax of command used in Selenium?
+Answer:
+There are three entities associated with a command -
+?         Name of Command
+
+?         Element Locator (also known as Target)
+?         Value (required when using echo, wait etc)
+
+
+Question 21:
+There are tons of Selenium Command, am I going to use all of them
+Answer:
+This entirely boils down to operations you are carrying out with Selenium. Though you would definitely be using following Selenium Commands more often -
+?         Open: opens a web page.
+?         click/clickAndWait: click on an element and waits for a new page to load.
+?         Select: Selects a value from a drop down value.
+?         verifyTitle/assertTitle: verifies/asserts page title.
+?         verify/assert ElementPresent: verifies/asserts presence of element, in the page.
+?         verify/assert TextPresent verifies/asserts  expected text is somewhere on the page.
+
+Question 22:
+How do I use html id and name while using Selenium IDE
+Answer:
+Html id and name can be used as it is in selenium IDE. For example Google search box has name - "q" and id - "list-b" and they can be used as target in selenium IDE -
+
+
+Question 23:
+What is XPath? When would I have to use XPath in Selenium IDE?
+Answer:
+XPath is a way to navigate in xml document and this can be used to identify elements in a web page. You may have to use XPath when there is no name/id associated with element on page or only partial part of name/ide is constant.
+Direct child is denoted with - /
+Relative child is denoted with - //
+Id, class, names can also be used with XPath -
+?         //input[@name='q']
+?         //input[@id='lst-ib']
+?         //input[@class=' lst']
+If only part of id/name/class is constant than "contains" can be used as -
+?         //input[contains(@id,'lst-ib')]
+
+Question 24:
+What is CSS location strategy in Selenium?
+Answer:
+
+CSS location strategy can be used with Selenium to locate elements, it works using cascade style sheet location methods in which -
+Direct child is denoted with - (a space)
+Relative child is denoted with - >
+Id, class, names can also be used with XPath -
+?         css=input[name='q']
+?         css=input[id='lst-ib'] or input#lst-ib
+?         css=input[class=' lst'] or input.lst
+If only part of id/name/class is constant than "contains" can be used as -
+?         css=input[id*=' lst-ib ')]
+Element location strategy using inner text
+?         css = a:contains(`log out')
+
+Question 25:
+There is id, name, XPath, CSS locator, which one should I use?
+Answer:
+If there are constant name/id available than they should be used instead of XPath and CSS locators. If not then css locators should be given preference as their evaluation is faster than XPath in most modern browsers.
+
+
+
+Question 26:
+ I want to generate random numbers, dates as my test data, how do I do this in Selenium IDE?
+Answer:
+This can be achieved by executing java script in Selenium. Java script can be executed using following syntax -
+
+            type
+            css=input#s
+            javascript{Math.random()}
+
+And for date -
+
+            type
+            css=input#s
+            javascript{new Date()}
+
+Question 27:
+Can I store result of an evaluation and use it later in my test?
+Answer:
+You can use "store" command to achieve this. You can save result of an evaluation in a variable and use it later in your Selenium IDE script. For example we can store value from a text box as following, and later use it to type it in another text box -
+            storeText
+            css=input#s
+            var1
+            type
+            css=input#d
+            ${var1}
+
+Question 28:
+I have stored result of an evaluation; can I print it in IDE to check its value?
+Answer:
+You can use echo command as following to check the stored value in Selenium IDE -
+
+            storeText
+            css=input#s
+            var1
+            echo
+            ${var1}
+           
+
+
+Question 29:
+Can I handle java script alert using Selenium?
+Answer
+You could use verify/assertAlert to check presence of alert on page. Since selenium cannot click on "Ok" button on js alert window, the alert itself does not appear on page when this check is carried out.
+
+Question 30:
+Selenium has recorded my test using XPath, how do I change them to css locator?
+Answer
+You can use drop down available next to Find in Selenium to change element locator used by Selenium -
+
+Question 31:
+I have written my own element locator, how do I test it?
+
+Answer
+You can use Find button of Selenium IDE to test your locator. Once you click on it, you would see element being highlighted on screen provided your element locator is right Else one error message would be displayed in log window.
+
+
+Question 32:
+I have written one js extension; can I plug it in Selenium and use it?
+Answer
+You could specify you js extension in "Options" window of Selenium IDE -
+
+
+Question 33:
+How do I convert my Selenium IDE tests from Selenese to another language?
+Answer
+You could use Format option of Selenium IDE to convert tests in another programming language -
+
+
+Question 34:
+I have converted my Selenium IDE tests to java but I am not able to execute them?, execution options as well as Table tab of Selenium IDE is disabled??
+
+
+
+Answer
+This is because Selenium IDE does not support execution of test in any other language than Selenese (language of Selenium IDE). You can convert Selenium IDE in a language of your choice and then use Selenium 1.0 to execute these tests in that language.
+
+Question 35:
+I want to use only Selenese as my test script language but still want to execute tests in other browsers, how do I do that?
+Answer
+You can execute you Selenese test in another browser by specifying the "-htmlSuite" followed by path of your Selenese suite while starting the Selenium Server. Selenium Server would be covered in details in question about Selenium RC.
+
+Question 36:
+I have added one command in middle of list of commands, how do I test only this new command?
+Answer
+You can double click on newly added command and Selenium IDE would execute only that command in browser.
+
+Question 37:
+Can I make Selenium IDE tests begin test execution from a certain command and not from the very first command?
+Answer
+You could set a command as "start" command from context menu. When a command is set as start command then a small green symbol appears before command. Same context menu can be used to toggle this optio
+
+Question 38:
+Are there other tools available outside Selenium IDE to help me tests my element locators
+Answer
+You could XPath checker - https://addons.mozilla.org/en-US/firefox/addon/xpath-checker/  to test you XPath locators and Firefinder (a firebug add on) to test you css locators -
+https://addons.mozilla.org/en-US/firefox/addon/firefinder-for-firebug/
+Firefinder can also be used to test XPath locators.
+
+Question 39:
+What is upcoming advancement in Selenium IDE?
+Answer
+The latest advancement in Selenium IDE would be to have capabilities of converting Selenium IDE tests in Webdriver (Selenium 2.0) options. This would help generating quick and dirty tests for Selenium 2.0
+
+Question 40:
+How can I use looping option (flow control) is Selenium IDE
+Answer
+Selenese does not provide support for looping, but there is extension which could be used to achieve same. This extension can be download from here - http://51elliot.blogspot.com/2008/02/selenium-ide-goto.html
+This extension can be added under "Selenium IDE Extension" section to use loop feature in Selenium IDE.
+
+
+
+
+Question 41:
+Can I use screen coordinate while using click command? I want to click at specific part of my element.
+Answer
+You would need to use clickAT command to achieve. clickAt command accepts element locator and x, y coordinates as arguments -
+clickAt(locator, coordString)
+
+Question 42:
+How do I verify presence of drop down options using Selenium?
+Answer
+Use assertSelectOptions as following to check options in a drop down list -
+assertSelectOptions
+
+Question 43:
+Can I get data from a specific html table cell using Selenium IDE?
+Answer
+Use storeTable command to get data from a specific cell in an html table, following example store text from cell 0,4 from an html table -
+            storeTable
+            css=#tableId.0.4
+            textFromCell
+
+Question 44:
+I want to make Selenium IDE record and display css locator followed by other locators, is it possible to give high priority to css locator in Selenium IDE?
+Answer
+You can change default behavior of Selenium IDE > element locator preference by crating js file with following-
+LocatorBuilders.order = ['css:name', 'css:id', 'id', 'link', 'name', 'xpath:attributes'];
+
+And add this file under "Selenium IDE Extension" under Selenium Options.
+
+Question 45:
+My application has dynamic alerts which don't always appear, how do I handle them?
+Answer
+If you want to simulate clicking "ok " on alert than use - chooseOkOnNextConfirmation and if you want to simulate clicking "cancel" on alert than use - chooseCancelOnNextConfirmation ( )
+
+
+Question 46:
+Can I right click on a locator?
+Answer
+
+You can use command - contextMenu ( locator) to simulate right click on an element in web page.
+
+
+Question 47:
+How do I capture screen shot of page using Selenium IDE?
+Answer
+
+Use command - captureEntirePageScreenshot to take screen shot of page.
+
+Question 48:
+I want to pause my test execution after certain command.
+Answer
+
+Use pause command which takes time in milliseconds and would pause test execution for specified time - pause ( waitTime )
+
+Question 49:
+I used open command to launch my page, but I encountered time out error?
+Answer
+
+This happens because open commands waits for only 30 seconds for page to load. If you application takes more than 30 sec then you can use "setTimeout ( timeout )" to make selenium IDE wait for specified time, before proceeding with test execution.
+Question 50:
+What's the difference between type and typeKeys commands?
+Answer
+
+type command simulates enter operations at one go while typeKeys simulates keystroke key by key.
+typeKeys could be used when typing data in text box which bring options (like Google suggestion list) because such operation are not usually simulated using type command.
+
+
+
+
+  Selenium RC (Selenium 1.0) Questions
+
+Question 51:
+What is Selenium RC (also known as Selenium 1.0)?
+Answer
+
+Selenium RC is an offering from SeleniumHQ which tries to overcome following draw backs of Selenium IDE -
+?         Able to execute tests only with Firefox
+?         Not able to use full-fledged programming language and being limited to Selenese
+
+Question 52:
+What are the main components of Selenium RC?
+Answer
+
+Selenium RC has two primary components -
+?         Client libraries which let you writes tests in language of your preference i.e. java, C#, perl, php etc
+?         Selenium sever which acts as a proxy between browser and application under test (aut)
+
+Question 53:
+Why do I need Selenium Server?
+Answer
+
+Selenium uses java script to drives tests on a browser; Selenium injects its own js to the response which is returned from aut. But there is a java script security restriction (same origin policy) which lets you modify html of page using js only if js also originates from the same domain as html. This security restriction is of utmost important but spoils the working of Selenium. This is where Selenium server comes to play an important role.
+Selenium server stands between aut and browser and injects selenium js to the response received from aut and then it is delivered to broswer. Hence browser believes that entire response was delivered from aut.
+
+
+Question 54:
+What is Selenium core? I have never used it!!!
+Answer
+
+Selenium core is the core js engine of Selenium which executes tests on browser, but because of same origin policy it needs to be deployed on app server itself, which is not always feasible. Hence Selenium core is not used in isolation. Selenium IDE as well as Selenium RC use Selenium core to drive tests while over coming same origin policy. In case of Selenium IDE tests are run in context of browser hence it is not hindered by same origin policy and with Selenium RC, Selenium Server over comes same origin policy.
+
+Question 55:
+Where is executable for Selenium RC, how do I install it?
+Answer
+
+Installation is a misnomer for Selenium RC. You don't install Selenium RC you only add client libraries to you project. For example in case of java you add client driver and Selenium server jars in Eclipse or IntelliJ which are java editors.
+
+Question 56:
+I have downloaded Selenium Server and Client libraries, how do I start Selenium Server?
+Answer
+
+To start Selenium Server, you need to navigate to installation directory of Selenium server and execute following command -
+            Java -jar .jar
+This will start Selenium server at port 4444 by default.
+Notice that you need to have java version 1.5 or higher available on your system to be able to use Selenium server.
+
+Question 57:
+On my machine port 4444 is not free? . How do Use another port?
+Answer
+
+You can specify port while running the selenium server as -
+                        Java -jar .jar -port 5555
+
+           
+Question 58:
+I am new to programming; can Selenium generate sample code from my Selenese scripts?
+Answer
+
+You can first record tests in Selenium IDE and then use format option to convert them in a language of your choice.
+
+Question 59:
+Can I start Selenium server from my program instead of command line
+Answer
+
+If you are using java then you can start Selenium server using SeleniumServer class. For this you need to instantiate SeleniumServer and then call start() method on it.
+            seleniumServer = new SeleniumServer();
+     seleniumServer.start();
+
+Question 60:
+And how do I start the browser?
+Answer
+
+While using java you need to create instance of DefaultSelenium class and pass it four parameters -
+
+selenium = new DefaultSelenium(serverHost, serverPort, browser, appURL);
+          selenium.start();
+Herein you need to pass,
+host where Selenium server is running,
+port of Selenium server,
+browser where tests are to be executed and
+application URL
+
+Question 61:
+I am not using java to program my tests, do I still have to install java on my system?
+
+Answer
+
+Yes, since Selenium server is written in java you need java to be installed on your system to be able to use it. Even though you might not be using java to program your tests.
+
+Question 62:
+What are the browsers offering from Selenium?
+Answer
+
+Following browsers could be used with Selenium -
+  *firefox
+  *firefoxproxy
+  *pifirefox
+  *chrome
+  *iexploreproxy
+  *iexplore
+  *firefox3
+  *safariproxy
+  *googlechrome
+  *konqueror
+  *firefox2
+  *safari
+  *piiexplore
+  *firefoxchrome
+  *opera
+  *iehta
+  *custom
+Here pi and proxy stand for proxy injection mode of Selenium server
+
+Question 63:
+During execution of tests I see two browser windows; one my test application another window shows commands being executed. Can I limit it to just one window?
+Answer
+
+Yes you can instruct Selenium Server to launch just one window. To do so you must specify -singleWindow while starting the Selenium server as -
+            Java -jar .jar -singleWindow
+
+Question 64:
+My tests usually time out?. Can I specify bigger time out?
+Answer
+
+This usually happens while using open method with Selenium. One way to overcome this is to use setTimeOut method in your test script another way is to specify time out while starting Selenium server as following -
+            Java -jar .jar -timeout
+
+Question 65:
+My system is behind corporate network, how do I specify my corporate proxy?
+Answer
+
+You can specify your corporate proxy as following while starting Selenium Server -
+java -jar .jar -Dhttp.proxyHost= -Dhttp.proxyPort= -Dhttp.proxyUser= -Dhttp.proxyPassword=
+
+
+Question 66:
+I am switching domains in my test scripts. I move from "yahoo.com" to "google.com" and my tests encounter permission denied error?
+Answer
+
+Changing domains is also a security restriction from java script. To overcome this you should start you Selenium server in proxy injection mode as -
+java -jar .jar -proxyInjectionMode
+Now Selenium server would act as proxy server for all the content going to test application
+
+Question 67:
+Can I execute my Selenese tests in another browser using Selenium server? I want to use only Selenese script my tests but still want to execute my test in non firefox browsers
+Answer
+
+Yes you can. To do so you need to specify following parameters while starting Selenium server -
+            Browser
+            Test domain
+Path to html suite (you Selenese tests) and
+Path to result
+java -jar <>.jar -htmlSuite    
+ 
+ 
+
+Question 68:
+Can I log more options during test execution?
+Answer
+
+If you want to log browser side option during test execution then you should start Selenium server as following -
+ 
+ 
+java -jar <>.jar -browserSideLog
+
+
+
+
+Question 69:
+Can I use Selenium RC on my UNIX/Mac also?
+Answer
+You can use Selenium RC on any system which is capable I running Java. Hence you can use it on RC and UNIX machines also
+
+
+Question 70:
+I want to test my scripts on new experimental browser, how do I do that?
+
+Answer
+You can specify *custom followed by path to browser to execute your tests on any browser while starting Selenium server
+ 
+        *custom 
+ 
+ 
+Question 71:
+I executed my tests cases but where is the test report?
+Answer
+Selenium RC itself does not provide any mechanism for test reporting. Test reporting is driven from the framework you use for Selenium. For example with java client driver of Selenium -
+
+?         if you are using JUnit then you can use ant plug-in of JUnit to generate test report
+?         if you are using TestNG then TestNG generates reports for you
+
+Same reporting option is available with PHP unit and other client libraries you are using.
+
+
+Question 72:
+How do I use recovery scenarios with Selenium? I used to use them with QTP.
+Answer
+Power of recovery scenarios lies with the programming language you use. If you are using java then you can use Exception handling to overcome same. For example if you are reading data from a file and file is not available then you should keep you code statements in "try catch" block so that test execution could continue even in the wake of errors. Such mechanism entirely boils down the errors you want to recover from, while being able to continue with test execution.
+
+
+Question 73:
+How do I iterate through options in my test script.
+Answer
+You can use loop features of the programming language, for example you can use "for" loop in java as following to type different test data in a text box -
+
+             // test data collection in an array
+            String[] testData = {"test1", "test2", "test3"};
+    
+     // iterate through each test data
+     for (String s : testData) {
+              selenium.type("elementLocator", testData);     
+     }
+ 
+
+
+Question 74:
+Can I execute java script from my tests? I want to count number of images on my page.
+Answer
+You can use method getEval() to evaluate java script. For example if you want to count number of images then you can pass following dom statement to getEval() as following -
+
+            selenium.getEval("window.document.images.length;");
+Or to get All anchor objects from a page
+            selenium.getEval("window.document.getElementsByTagName(`a');");
+
+Question 75:
+Is there a way for me to know all available options when I start Selenium Server?
+Answer
+If you want to see all options available while starting Selenium server then you should use option "-h" while starting Selenium server -
+            Java -jar .jar -h
+It would display you all the options which you can use while starting the Selenium server.
+
+
+
+Question 76:
+I have created my own firefox profile; can I execute my test scripts on it
+Answer
+You may like to create your own firefox profile because Selenium always created a clean firefox profile while executing the tests and none of your FF settings and plug-in are considered with this clean profile. If you want to execute tests on FF with your settings then you should create custom profile for FF.
+To be able to execute tests on a custom firefox profile you should specify its path while starting Selenium server. For example if your new profile is stored at "awesome location" in your directory then you should start Selenium server as following -
+Java -jar .jar -firefoxProfileTemplate   "awesome location"
+ 
+ 
+
+Question 77:
+How do I capture server side log from Selenium server?
+Answer
+Start your Selenium Server as following -
+
+java -jar .jar -log selenium.log
+
+And Selenium would start logging server side info, i.e.
+
+20:44:25 DEBUG [12] org.openqa.selenium.server.SeleniumDriverResourceHandler -
+Browser 12345/:top frame1 posted START NEW
+
+
+Question 78:
+What are Heightened Privileges Browsers?
+Answer
+Firefox and IE have browser modes which are not restricted by java script's same origin policy. These browsers are known as browsers with elevated security privileges. In case of Firefox it is known as chrome (It's not the Google browser) and in case of IE it is known as iehta
+
+
+Question 79:
+My application has lots of pop up window, how do I work with them?
+Answer
+You need to know the Window ID of pop window to be able to work with them.
+First you need to bring control on pop up window; execute selenium commands there, close the pop up window and then bring control back to main window. Consider following example where click on an image brings a pop up window -
+
+                         // click on image brings pop up window
+selenium.click("css=img");
+         
+// wait for pop up window identified using anchor target "ss"
+          selenium.waitForPopUp("ss", getWaitPeriod());
+          selenium.selectWindow("ss");
+         
+          // Some more operations on popup window
+// Close the pop up window and Select the main application window    
+          // Main window is selected by adding null as argument
+          selenium.close();
+          selenium.selectWindow("null");
+          // continue with usual operation ?
+
+
+Question 80:
+While trying to execute my tests with firefox I encountered following error - "Firefox Refused Shutdown While Preparing a Profile". How do I solve it?
+Answer
+This message simply means that Selenium is not able to launch FF browser as it is already running on your system. To overcome this you should close all running instances of FF browser.
+You should also check your system process if there is any hidden FF profile running which is not visible on screen. You should kill all FF processes and following this your tests should run smooth
+
+
+Question 80:
+While trying to execute my tests with firefox I encountered following error - "Firefox Refused Shutdown While Preparing a Profile". How do I solve it?
+Answer
+This message simply means that Selenium is not able to launch FF browser as it is already running on your system. To overcome this you should close all running instances of FF browser.
+You should also check your system process if there is any hidden FF profile running which is not visible on screen. You should kill all FF processes and following this your tests should run smooth
+
+Question 81:
+My application uses Ajax heavily how do I use Selenium RC to work with Ajax operations?
+Answer
+Ajax operations don't reload a page like normal form submission but they make http requests behind the scene. You cannot use waitForPageToLoad for such operations and instead should use conditional wait for change in state of application. This could as well mean waiting for presence of an element before continuing with test operations. Consider following example in which type operation triggers Ajax operation which is followed by conditional wait for presence of a text box -
+
+// type operation brings element "q" on screen without loading the page
+selenium.type("elementLocator", "testData");
+
+// conditional wait for element "q"
+for (int second = 0;; second++) {
+     if (second >= 60) fail("timeout");
+try { if (selenium.isElementPresent("q")) break; } catch (Exception e) {}
+          Thread.sleep(1000);
+}
+
+
+Question 82:
+How do I upload a file using Selenium? I need to upload a word file during test execution.
+Answer
+If you are using Firefox then you can use "type" command to type in a File Input box of upload file. But type operation does not work with IE and you would have to use "Robot" class in java to work make file upload work.
+
+
+
+Question 83:
+Why do I get "permission denied" error during execution of Selenium tests?
+Answer
+The primary reason of permission denied error is same origin policy restriction from java script. To overcome this error you can use browsers with elevated security privileges. In case of Firefox you should use *chrome and in case of IE you should use *iehta as browser for working with Selenium.
+
+
+Question 84:
+I am not able to use "style" attribute to locate element with IE browser?
+Answer
+This is because IE expects attribute values to be in caps while other browsers expect it to be lower case letters. Hence
+
+//tr[@style="background-color:yellow"] works with other browsers
+//tr[@style="BACKGROUND-COLOUR:yellow"] works with IE
+
+
+Question 85:
+Are there any technical limitations while using Selenium RC?
+Answer
+Besides notorious "same origin policy" restriction from js, Selenium is also restricted from exercising anything which is outside browser. For example you cannot click on "Tools" option of your browser by just using Selenium.
+
+Question 86:
+But my tests need me to exercise objects outside browser, how do I achieve it?
+Answer
+You can use Robot class in java to achieve this, but it would be dirty solution even if you get through this.
+
+Question 87:
+Does Selenium have any offering for mobile browsers?
+Answer
+Selenium 2.0 (WebDriver) provides iPhone as well Android drivers which could be used to drive tests on mobile browsers
+
+Question 88:
+How does Selenium RC stand with other commercial tools?
+Answer
+The biggest advantage of Selenium RC is that it is absolutely free and has vast support of languages and browsers (almost always). Selenium lags when it comes to test reporting as Selenium does not have any in built reporting but this can be easily achieved using the programming language you decide to work on with Selenium. A bigger drawback is not being able to exercise objects which are outside browser window, for example clicking on folder on your desktop.
+
+Question 89:
+How does Selenium RC stand with other commercial tools?
+Answer
+The biggest advantage of Selenium RC is that it is absolutely free and has vast support of languages and browsers (almost always). Selenium lags when it comes to test reporting as Selenium does not have any in built reporting but this can be easily achieved
+
+Question 90:
+Can I just use Selenium RC to drive tests on two different browsers on one operating system without using Selenium Grid?
+Answer
+If you are using java client driver of Selenium then java testing framework TestNG lets you achieve this. You can set tests to be executed in parallel using "parallel=test" attribute and define two different tests, each using a different browser. Whole set up would look as  (notice the highlighted sections for browser in test suite)-
+
+xml version="1.0" encoding="utf-8"?>
+DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Test Automation" verbose="10">
+
+     <parameter name="serverHost" value="localhost" />
+     <parameter name="appURL" value="http://tamil.yahoo.com"/>
+     <parameter name="proxyInjection" value="false" />
+     <parameter name="serverPort" value="4444"/>
+    
+     <test name="Web Test1">
+          <parameter name="browser" value="*chrome" />
+          <parameter name="m" value="1">parameter>
+<classes><class name="com.core.tests.TestClass1">class>classes>
+     test>  
+    
+     <test name="Web Test2">
+          <parameter name="browser" value="*iehta" />
+          <parameter name="m" value="2">parameter>
+<classes><class name="com.core.tests.TestClass1">class>classes>
+     test>
+    
+suite>
+
+
+
+
+Selenium Grid Questions
+
+Question 91:
+How do I cut down text execution time for my selenium tests? I want to execute my tests on a combination of different machines and browsers.
+Answer
+Selenium grid is your friend?. Selenium grid lets you distribute tests across browsers and machines of your choice.
+
+
+
+
+Question 92:
+How does Selenium grid works?
+
+Answer
+Selenium grid uses combination of Selenium RC servers to execute tests in multiple browsers on different machine. Herein one Selenium RC server works as hub while other RC servers work as slaves, which could be controlled by hub. Whenever there is a request for a specific configuration for test execution then hub looks for a free RC slave server and if available then test execution begins on it. Once test execution is over then RC slave server would be available for next set of test execution.
+
+Question 93:
+Can you show me one diagram which describes functionality of Selenium grid?
+Answer
+In the following diagram Selenium hub is controlling three Selenium RC servers which are running for configurations -
+?         IE on Windows
+?         FF on Linux
+?         FF on windows
+
+Question 94:
+Which jar files are needed to works with Selenium GRID?
+Answer
+You need to download and add following jar files to your Selenium set up to be able to work with Selenium. These jar files are -
+?         selenium-grid-remote-control-standalone-.jar
+?         selenium-grid-hub-standalone-.jar
+?         selenium-grid-tools-standalone-.jar
+
+Question 95:
+How do I start Selenium Grid hub from my machine?
+Answer
+You should have "ant" set up on your system to be able to work with Grid. Once you have downloaded Selenium Grid, navigate to its distribution directory and execute following command -
+ant launch-hub
+
+This would start grid hub on port 4444 locally. You can verify this by navigating to following URL -             http://localhost:4444/console
+
+Question 96:
+How do I start Selenium Grid Slave Server from my system?
+Answer
+Navigate to download directory of Selenium gird and execute following command -
+            ant launch-remote-control
+This would launch remote control server at port 555. At this point if you navigate to http://localhost:4444/console then you would see this remote control listed under "Available Remote Controls"
+
+Question 97:
+How do I start Selenium grid slave on a different port than 5555?
+Answer
+You can use option "-Dport" followed by port number to start grid slave on a specific port.
+ant -Dport=1111 launch-remote-control
+ant -Dport=2222 launch-remote-control
+
+Question 98:
+How do I start grid RC slaves on a different system than my local host so than hub could control and contact a specific configuration?
+Answer
+You should specify following configuration while starting RC slave -
+ant -Dport= -Dhost= -DhubURL= launch-remote-control
+Herein "hostname" is the host where RC slave is running and "hub url" is URL of machine where grid hub is running.
+
+Question 99:
+How do I specify an environment while starting grid slave machine?
+Answer
+You could specify an environment using "-Denvironment" while starting a slave machine.
+                ant -Denvironment="Safari on Mac" launch-remote-control
+Herein Safari on Mac is the environment which would be used to recognize configuration of RC slave.
+
+Question 100:
+How do I use machine specific configuration in my Selenium tests?
+Answer
+You could specify machine specific configuration while instantiating Selenium as -
+Selenium = new DefaultSelenium("localhost", 4444, **'Safari on Mac'**, 'http://yahoo.com');
+And then you use this selenium instance to carryout operation on your web application.
+
+Question 101:
+But how does my tests know that `Safari on Mac' mean a safari browser? How does mapping between names like `Safari on Mac' and original browser options available in Selenium work?
+Answer
+Selenium grid uses a file called "grid_configuration.yml" which defines configurations of all browsers. You would have to add this in your project. This file looks like -
+
+Question 102:
+How does Selenium grid hub keeps in touch with RC slave machine?
+Answer
+Selenium grid hub keeps polling all RC slaves at predefined time to make sure they are available for testing. If not then Selenium hub disconnect any unavailable RC slaves and makes it clear that any RC slave is not available for testing. The deciding parameter is called - "remoteControlPollingIntervalInSeconds" and is defined in "grid_configuration.yml" file.
+
+Question 103:
+My RC becomes unresponsive at times and my Selenium grid hub keeps waiting for RC slave to respond?. How do I let hub know to give up on RC slave after a certain time?
+Answer
+You could state Selenium grid hub to wait for RC slave for a predefined time, and if RC slave does not responds with in this time then hub disconnects test execution on that slave. This parameter is called "sessionMaxIdleTimeInSeconds" and this parameter can be defined in "grid_configuration.yml" file.
+
+Question 104:
+What if my hub goes down while Selenium RC slaves are up and running?
+Answer
+There is one heart beat mechanism from RC slave to hub which is reciprocal to mechanism used by hub to slave machines. RC slaves use a parameter called "hubPollerIntervalInSeconds" to keep track of running grid hub. This parameter can be defined while starting the hub as -
+ant -DhubPollerIntervalInSeconds= launch-hub 
+if hub does not respond within this time then RC slaves deregister themselves from hub.
+Question 105:
+Can Selenium grid be used for performance testing?
+Answer
+Selenium grid is for functional testing of application across different configuration. Performance testing is usually not carried out on actual devices but on a simulated http request/response mechanism. If you want to use Selenium Grid for performance testing then you would have to invest heavily on s/w and h/w infrastructure.
+Question 106:
+Are there additional logs available while working with Selenium grid?
+Answer
+You can find Selenium grid hub logs in "log/hub.log" and Remote Control logs in "log/rc-*.log" folder.
+Question 107:
+There are various options available while starting a Selenium server, how do I use them with Selenium grid?
+Answer
+You can use "seleniumArgs" Java property while launching the remote control and specify any of the option which you would with normal Selenium set up. For example you can run Selenium RC slave in single window mode using following command -
+ant -DseleniumArgs="-singleWindow -debug" launch-remote-control
+
+Question 108:
+I see duplicate entries in my hub console, same RC slave listed more than once :-O
+Answer
+This is because you are killing RC slave very ferociously. For example you if you just close the console without actually ending the process in more civil manner. To avoid this you should kill all RC slaves in more civil manner. If you encounter this error then you should restart Selenium hub and RC slaves would them register themselves to hub.
+
+Question 109:
+How do I specify my corporate proxy while starting Selenium grid hub or slave machines?
+Answer
+You could use setting for "http.proxyHost" abd "http.proxyPort" while starting hub and remote control machines -
+ant -Dhttp.proxyHost= -Dhttp.proxyPort= launch-hub
+ant -Dhttp.proxyHost= -Dhttp.proxyPort= launch-remote-control
+
+Question 110:
+How do I use Selenium Grid while using Java, .Net or Ruby
+Answer
+With java you can take advantage of parallel testing capabilities of TestNG to drive your Selenium grid tests
+With .Net you can use "Gallio" to execute your tests in parallel
+With Ruby you can use "DeepTest" to distribute your tests
+
+Question 111:
+How about the test report when I use Selenium grid for test execution?
+Answer
+This entirely boils down to framework you use to write your tests. For example in case of java, TestNG reports should suffice.
+
+
+Web Driver (Selenium 2.0) Questions
+
+Question 112:
+What is Selenium 2.0? I have heard this buzz word many times.
+Answer
+Selenium 2.0 is consolidation of two web testing tools - Selenium RC and WebDriver, which claims to give best of both words - Selenium and WebDriver. Selenium 2.0 was officially released only of late.
+
+Question 113:
+Why are two tools being combined as Selenium 2.0, what's the gain?
+
+Answer
+Selenium 2.0 promises to give much cleaner API then Selenium RC and at the same time not being restricted by java script Security restriction like same origin policy, which have been haunting Selenium from long. Selenium 2.0 also does not warrant you to use Selenium Server.
+
+Question 114:
+So everyone is going to use Selenium 2.0?
+Answer
+Well no, for example if you are using Selenium Perl client driver than there is no similar offering from Selenium 2.0 and you would have to stick to Selenium 1.0 till there is similar library available for Selenium 2.0
+
+Question 115:
+So how do I specify my browser configurations with Selenium 2.0?
+Answer
+Selenium 2.0 offers following browser/mobile configuration -
+?         AndroidDriver,
+?         ChromeDriver,
+?         EventFiringWebDriver,
+?         FirefoxDriver,
+?         HtmlUnitDriver,
+?         InternetExplorerDriver,
+?         IPhoneDriver,
+?         IPhoneSimulatorDriver,
+?         RemoteWebDriver
+And all of them have been implemented from interface WebDriver. To be able to use any of these drivers you need to instantiate their corresponding class.
+
+Question 116:
+How is Selenium 2.0 configuration different than Selenium 1.0?
+Answer
+In case of Selenium 1.0 you need Selenium jar file pertaining to one library for example in case of java you need java client driver and also Selenium server jar file. While with Selenium 2.0 you need language binding (i.e. java, C# etc) and Selenium server jar if you are using Remote Control or Remote WebDriver.
+
+Question 117:
+Can you show me one code example of setting Selenium 2.0?
+Answer
+Here is java example of initializing firefox driver and using Google Search engine -
+protected WebDriver webDriver;
+    
+     //@BeforeClass(alwaysRun=true)
+     public void startDriver(){
+     webDriver = new FirefoxDriver();
+     // Get Google search page and perform search on term "Test"
+webDriver.get("http://www.google.com");
+     webDriver.findElement(By.name("q")).sendKeys("Test");
+     webDriver.findElement(By.name("btnG")).click();
+
+
+Question 118:
+Which web driver implementation is fastest?
+Answer
+HTMLUnitDriver. Simple reason is HTMLUnitDriver does not execute tests on browser but plain http request - response which is far quick than launching a browser and executing tests. But then you may like to execute tests on a real browser than something running behind the scenes
+
+
+Question 119:
+What all different element locators are available with Selenium 2.0?
+Answer
+Selenium 2.0 uses same set of locators which are used by Selenium 1.0 - id, name, css, XPath but how Selenium 2.0 accesses them is different. In case of Selenium 1.0 you don't have to specify a different method for each locator while in case of Selenium 2.0 there is a different method available to use a different element locator. Selenium 2.0 uses following method to access elements with id, name, css and XPath locator -
+
+driver.findElement(By.id("HTMLid"));
+driver.findElement(By.name("HTMLname"));
+driver.findElement(By.cssSelector("cssLocator"));
+driver.findElement(By.xpath("XPathLocator));
+
+Question 120:
+How do I submit a form using Selenium?
+Answer
+You can use "submit" method on element to submit form -
+
+element.submit();
+
+Alternatively you can use click method on the element which does form submission.
+
+
+Question 121:
+Can I simulate pressing key board keys using Selenium 2.0?
+Answer
+You can use "sendKeys" command to simulate key board keys as -
+
+            element.sendKeys(" and some", Keys.ARROW_UP);
+You can also use "sendKeys" to type in text box as -
+
+            HTMLelement.sendKeys("testData");
+
+Question 122:
+How do I clear content of a text box in Selenium 2.0
+Answer
+You can use "clear" method on text box element to clear its content -
+            textBoxElement.clear();   
+
+Question 123:
+How do I select a drop down value using Selenium2.0?
+Answer
+To select a drop down value, you first need to get the select element using one of element locator and then you can select element using visible text -
+Select selectElement = new Select(driver.findElement(By.cssSelector("cssSelector")));
+          selectElement.selectByVisibleText("India");
+Question 124:
+What are offering to deal with popup windows while using Selenium 2.0?
+Answer
+You can use "switchTo" window method to switch to a window using window name. There is also one method "getWindowHandles" which could be used to find all Window handles and subsequently bring control on desired window using window handle -
+webDriver.switchTo().window("windowName");
+
+          for (String handle : driver.getWindowHandles()) {
+              driver.switchTo().window(handle);
+          }
+ 
+
+Question 125:
+How about handling frames using Selenium 2.0?
+Answer
+You can use "switchTo" frame method to bring control on an HTML frame -
+            driver.switchTo().frame("frameName");
+You can also use index number to specify a frame -
+            driver.switchTo().frame("parentFrame.4.frameName");
+This would bring control on frame named - "frameName" of the 4th sub frame names "parentFrame"
+
+Question 126:
+Can I navigate back and forth in a browser in Selenium 2.0?
+Answer
+You can use Navigate interface to go back and forth in a page. Navigate method of WebDriver interface returns instance of Navigation. Navigate interface has methods to move back, forward as well as to refresh a page -
+driver.navigate().forward();
+driver.navigate().back();
+driver.navigate().refresh();
+ 
+ 
+
+Question 127:
+What is the order of fastest browser implementation for WebDriver?
+Answer
+HTMLUnitDriver is the fastest browser implementation as it does not involves interaction with a browser, This is followed by Firefox driver and then IE driver which is slower than FF driver and runs only on Windows.
+ 
+ 
+Question 128:
+Is it possible to use Selenium RC API with Selenium 2.0?
+Answer
+You can emulate Selenium 1.0 API with Selenium 2.0 but not all of Selenium 1.0 methods are supported. To achieve this you need to get Selenium instance from WebDriver and use Selenium methods. Method executions might also be slower while simulating Selenium 1.0 with in Selenium 2.0
+ 
+ 
+Question 129:
+Can you show me one example of using Selenium 1.0 in Selenium 2.0?
+Answer
+Code Sample:
+// Create web driver instance
+     WebDriver driver = new FirefoxDriver();
+
+     // App URL
+     String appUrl = "http://www.google.com";
+
+     // Get Selenium instance
+Selenium selenium = new WebDriverBackedSelenium(driver, appUrl);
+
+     // Tests using selenium
+     selenium.open(appURL);
+     selenium.type("name=q", "testData");
+     selenium.click("name=btnG");
+
+     // Get back the WebDriver instance
+WebDriver driverInstance = ((WebDriverBackedSelenium) selenium).getUnderlyingWebDriver();
+
+
+Question 130:
+I had support of lots of browsers while using Selenium 1.0 and it seems lacking with Selenium 2.0, for example how do I use < awesome> browser while using Selenium 2.0?
+Answer
+There is a class called Capabilities which lets you inject new Capabilities in WebDriver. This class can be used to set testing browser as Safari -
+//Instantiate Capabilities
+     Capabilities capabilities = new DesiredCapabilities()
+         
+     //Set browser name
+     capabilities.setBrowserName("this awesome browser");
+         
+     //Get your browser execution capabilities
+CommandExecutor executor = new SeleneseCommandExecutor("http:localhost:4444/", "http://www.google.com/", capabilities);
+         
+     //Setup driver instance with desired Capabilities
+WebDriver driver = new RemoteWebDriver(executor, capabilities);
+
+
+Question 131:
+Are there any limitations while injecting capabilities in WebDriver to perform tests on a browser which is not supported by WebDriver?
+Answer
+Major limitation of injecting Capabilities is that "fundElement" command may not work as expected. This is because WebDriver uses Selenium Core to make "Capability injection" work which is limited by java script security policies.
+
+Question 132:
+Can I change User-Agent while using FF browser? I want to execute my tests with a specific User-Agent setting.
+Answer
+You can create FF profile and add additional Preferences to it. Then this profile could be passed to Firefox driver while creating instance of Firefox -
+FirefoxProfile profile = new FirefoxProfile();
+profile.addAdditionalPreference("general.useragent.override", "User Agent String");
+     WebDriver driver = new FirefoxDriver(profile);
+
+Question 133:
+Is there any difference in XPath implementation in different WebDriver implementations?
+Answer
+Since not all browsers (like IE) have support for native XPath, WebDriver provides its own implementation for XPath for such browsers. In case of HTMLUnitDriver and IEDriver, html tags and attributes names are considered lower cased while in case of FF driver they are considered case in-sensitive.
+
+Question 134:
+My application uses ajax highly and my tests are suffering from time outs while using Selenium 2.0?.
+Answer
+You can state WebDriver to implicitly wait for presence of Element if they are not available instantly.  By default this setting is set to 0. Once set, this value stays till the life span of WebDriver object. Following example would wait for 60 seconds before throwing ElementNotFound exception -
+WebDriver driver = new FirefoxDriver();
+driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+WebElement element = driver.findElement(By.id("elementID"));
+
+
+
+Question 135:
+What if I don't want to use implicit wait and want to wait only for presence of certain elements?
+Answer
+You can use explicit wait in this situation to wait for presence of certain element before continuing with test execution. You can use "WebDriverWait" and "ExpectedCondition" to achieve this -
+
+WebDriver driver = new FirefoxDriver();
+WebElement myDynamicElement = (new WebDriverWait(driver, 60)).until(new ExpectedCondition<WebElement>(){
+             
+@Override
+     public WebElement apply(WebDriver d) {
+          return d.findElement(By.id("myDynamicElement"));
+     }});
+
+This is going to wait up to 60 seconds before throwing ElementNotFound exception.
+
+
+
+Question 136:
+What is RemoteWebDriver? When would I have to use it?
+Answer
+RemoteWebDriver is needed when you want to use HTMLUnitDriver. Since HTMLUnitDriver runs in memory, you would not see a browser getting launched -
+
+                         
+        // Create HTMLUnitDriver instance
+        WebDriver driver = new HtmlUnitDriver();
+
+        // Launch Yahoo.com
+        driver.get("http://www.yahoo.com");
+
+
+Question 137:
+What all languages available to be used with WebDriver?
+Answer
+Java and C# are on the forefront of WebDriver languages. Support is also available for Python and Ruby. There is also one java script library available for Friefox.
+
+Question 138:
+How do I handle java script alert using WebDriver?
+Answer
+WebDriver would support handling js alerts using Alert interface.
+                 // Bring control on already opened alert
+          Alert alert = driver.switchTo().alert();
+
+          // Get the text of the alert or prompt
+          alert.getText(); 
+         
+// Click ok on alert
+          alert.accept();
+
+Question 139:
+Could I safely execute multiple instances of WebDriver implementations?
+Answer
+As far as HTMLUnitDriver and FF drivers are concerned, each instance would be independent of other. In case of IE driver there could be only one instance of IE driver running on Windows. If you want to execute more than one instance of IE driver then you should consider using RemoteWebDriver and virtual machines.
+
+Question 140:
+Is it possible to interact with hidden elements using WebDriver?
+Answer
+Since WebDriver tries to exercise browser as closely as real users would, hence simple answer is No, But you can use java script execution capabilities to interact with hidden elements.
+
+Question 141:
+I have all my tests written in Selenium 1.0 (Selenium RC), why should I migrate to Selenium 2.0 (WebDriver)?
+
+Answer
+Because -
+?         WebDriver has more compact and object oriented API than Selenium 1.0
+?         WebDriver simulates user behaviour more closely than Selenium 1.0, for example if a text box is disabled WebDriver would not be able to type text in it while Selenium 1.0 would be
+?         WebDriver is supported by Browser vendor themselves i.e. FF, Opera, Chrome etc
+
+Question 142:
+My XPath and CSS locators don't always work with Selenium 2.0, but they used to with Selenium 1.0?.
+Answer
+In case of XPath, it is because WebDriver uses native browser methods unless it is not available. And this cause complex XPath to be broken. In case of Selenium 1.0 css selectors are implemented using Sizzle Library and not all the capabilities like "contains" are available to be used with Selenium 2.0
+
+Question 143:
+How do I execute Java Script in Selenium 2.0?
+Answer
+You need to use JavaScriptExecutor to execute java script in Selenium 2.0, For example if you want to find tag name of an element using Selenium 2.0 then you can execute java script as following -
+WebElement element = driver.findElement(By.id("elementLocator"));
+String name = (String) ((JavascriptExecutor) driver).executeScript(
+     "return arguments[0].tagName", element);
+
+Question 144:
+Why does not my java script execution return any value?
+Answer
+This might happen when you forget to add "return" keyword while executing java script. Notice the "return" keyword in following statement -
+((JavascriptExecutor) driver).executeScript("return window.title;");
+
+
+
+
+Question 145:
+Are there any limitations from operating systems while using WebDriver?
+Answer
+While HTMLUnitDriver, FF Driver and Chrome Driver could be used on all operating systems, IE Driver could be used only with Windows.
+
+
+Question 146:
+Give me architectural overview of WebDriver.
+Answer
+WebDriver tries to simulate real user interaction as much as possible. This is the reason why WebDriver does not have "fireEvent" method and "getText" returns the text as a real user would see it. WebDriver implementation for a browser is driven by the language which is best to driver it. In case of FF best fit languages are Javascript in an XPCOM component and in IE it is C++ using IE automation.  Now the implementation which is available to user is a thin wrapper around the implementation and user need not know about implementation.
+
+
+Question 147:
+What is Remote WebDriver Server?
+Answer
+Remote WebDriver Server has two components - client and server. Client is WebDriver while Server is java servlet. Once you have downloaded selenium-server-standalone-.jar file you can start it from command line as -
+        java -jar selenium-server-standalone-<version-number>.jar
+           
+
+Question 148:
+Is there a way to start Remote WebDriver Server from my code?
+Answer
+First add Remote WebDriver jar in your class path. You also need another server called "Jetty" to use it. You can start sever as following -
+                        WebAppContext context = new WebAppContext();
+         context.setContextPath("");
+         context.setWar(new File("."));
+         server.addHandler(context);
+
+         context.addServlet(DriverServlet.class, "/wd/*");
+
+SelectChannelConnector connector = new SelectChannelConnector();
+         connector.setPort(3001);
+         server.addConnector(connector);
+
+         server.start();
+
+Question 149:
+But what are the advantages of using Remote WebDriver over WebDriver?
+Answer
+You can use Remote WebDriver when -
+?         When you want to execute tests on a browser not available to you locally
+?         Introduction to extra latency to tests
+But there is one disadvantage of using Remote WebDriver that you would need external servlet container.
+
+Question 150:
+Can you show me code example of using Remote WebDriver?
+Answer
+// Any driver could be used for test
+DesiredCapabilities capabilities = new DesiredCapabilities();
+
+          // Enable javascript support
+          capabilities.setJavascriptEnabled(true);
+
+          // Get driver handle
+          WebDriver driver = new RemoteWebDriver(capabilities);
+
+          // Launch the app
+          driver.get("http://www.google.com");
+
+Question 151:
+What are the modes of Remote WebDriver
+Answer
+Remote WebDriver has two modes of operations -
+Client Mode: This is where language bindings connect to remote instance. FF drive and RemoteWebDriver clients work this way.
+Server Mode: In this mode language bindings set up the server. ChromeDriver works this way.
+
+
+Question 152:
+What Design Patterns could be used while using Selenium 2.0?
+Answer
+These three Design Patterns are very popular while writing Selenium 2.0 tests -
+
+1.      Page Objects - which abstracts UI of web page
+2.      Domain Specific Language - which tries to write tests which could be understood by a normal user having no technical knowledge
+3.      Bot Style Tests - it follows "command-like" test scripting
+
+
+
+Question 153:
+So do I need to follow these Design patterns while writing my tests?
+Answer
+Not at all, these Design Patterns are considered best practices and you can write you tests without following any of those Design Patterns, or you may follow a Design Pattern which suites your needs most.
+
+
+
+Question 154:
+Is there a way to enable java script while using HTMLUnitDriver?
+Answer
+Use this -
+
+HtmlUnitDriver driver = new HtmlUnitDriver();
+     driver.setJavascriptEnabled(true);
+
+or this -
+     HtmlUnitDriver driver = new HtmlUnitDriver(true);
+
+
+
+
+Question 155:
+Is it possible to emulate a browser with HTMLUnitDriver?  
+Answer
+You can emulate browser while using HTMLUnitDriver but it is not recommended as applications are coded irrespective of browser you use. You could emulate Firefox 3 browser with HTMLUnitDriver as -
+
+HtmlUnitDriver driver = new HtmlUnitDriver(BrowserVersion.FIREFOX_3);
+
+Or you can inject desired capabilities while instantiating HTMLUnitDriver as -
+
+HtmlUnitDriver driver = new HtmlUnitDriver(capabilities);
+     
+
+
+Question 156:
+How do I use iPhone Driver?
+Answer
+You should start iPhone SDK and build iPhone driver. Down load iPhone development tools and provision profile. Now iPhone driver can connect through HTTP to the iphone simulator. You can also run simulator on another machine in your network and WebDriver could connect to it remotely.
+
+
+
+Question 157:
+Is it possible to convert Selenium IDE test to WebDriver test?
+Answer
+For now there is no formatter available to convert Selenium IDE tests to corresponding WebDriver tests, hence simple answer is No. Yes WebDriver style of code can be generated from Selenium IDE 
+
+
+Question 158:
+Can WebDriver handle UntrustedSSLCertificates?
+Answer
+This feature is currently supported in Firefox browser and is awaiting implementation in IE and Chrome drivers.
+
+
+Question 159:
+Can I carry out multiple operations at once while using WebDriver?
+Answer
+You can use Builder pattern to achieve this. For example if you want to move an element from one place to another you can use this -
+
+          Actions builder = new Actions(driver);
+
+          Action dragAndDrop = builder.clickAndHold(element)
+                 .moveToElement(otherElement)
+                 .release(otherElement)
+                 .build();
+
+          dragAndDrop.perform();
+
+Question 160:
+How do I simulate keyboard keys using WebDriver?
+Answer
+There is a KeyBoard interface which has three methods to support keyboard interaction -
+
+sendKeys(CharSequence)- Sends character sequence
+pressKey(Keys keyToPress) - Sends a key press without releasing it.
+releaseKey(Keys keyToRelease) - Releases a modifier key
+
+
+Question 161:
+What about Mouse Interaction?
+
+Answer
+Mouse interface lets you carry out following operations -
+click(WebElement element) - Clicks an element
+doubleClick(WebElement element) - Double-clicks an element.
+void mouseDown(WebElement element) - Holds down the left mouse button on an element.
+mouseUp(WebElement element) - Releases the mouse button on an element.
+mouseMove(WebElement element) - Moves element form current location to another element.
+contextClick(WebElement element) - Performs a context-click (right click) on an element.
+
+Question 162:
+How does Android Webdriver works?
+Answer
+Android WebDriver uses Remote WebDriver. Client Side is test code and Server side is application installed on android emulator or actual device. Here client and server communicate using JSON wire protocol consisting of Rest requests.
+
+Question 163:
+What are the advantages of using Android WebDriver?
+Answer
+Android web driver runs on Android browser which is best real user interaction. It also uses native touch events to emulated user interaction.
+But there are some drawbacks also like, it is slower than headless WebKit driver. XPath is not natively supported in Android web view.
+
+
+Question 164:
+Is there a built-in DSL (domain specific language) support available in WebDriver?
+Answer
+There is not, but you can easily build your own DSL, for example instead of using -
+
+webDriver.findElement(By.name("q")).sendKeys("Test");
+
+You can create a more composite method and use it -
+
+public static void findElementAndType(WebDriver webDriver, String elementLocator, String testData) {
+
+webDriver.findElement(By.name(elementLocator)).sendKeys(testData);
+     }
+
+And now you just need to call method findElementAndType to do type operation.
+
+
+Question 165:
+What is grid2?
+Answer
+Grid2 is Selenium grid for Selenium 1 as well as WebDriver, This allows to -
+
+?         Execute tests on parallel on different machines
+?         Managing multiple environments from one point
+
+
+Question 166:
+How do I start hub and slaves machines in grid 2?
+Answer
+Navigate to you selenium server standalone jar download and execute following command -
+
+java -jar selenium-server-standalone-.jar -role hub
+ 
+And you start Slave machine by executing following command -
+ 
+Java -jar selenium-server-.jar -role webdriver  -hub http://localhost:4444/grid/register -port 6666
+ 
+
+Question 167:
+And how do I run tests on grid?
+Answer
+You need to use the RemoteWebDriver and the DesiredCapabilities object to define browser, version and platform for testing. Create Targeted browser capabilities as -
+ 
+DesiredCapabilities capability = DesiredCapabilities.firefox();
+ 
+Now pass capabilities to Remote WebDriver object -
+ 
+WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+
+Following this, hub will take care of assigning tests to a slave machine
+
+
+Question 168:
+What parameters can be passed to grid2?
+Answer
+You can pass following parameters to grid 2 -
+-port 4444 (default 4444)
+-nodeTimeout (default 30) the timeout in seconds before the hub automatically releases a node that hasn't received any requests for more than the specified number of seconds.
+-maxConcurrent 5 (5 is default) The maximum number of browsers that can run in parallel on the node.
+
+
+
+Selenium Tool Implementation Misc Questions
+
+Question 169:
+How do I implement data driven testing using Selenium?
+Answer
+Selenium, unlike others commercial tools does not have any direct support for data driven testing. Your programming language would help you achieving this. You can you jxl library in case of java to read and write data from excel file. You can also use Data Driven Capabilities of TestNG to do data driven testing.
+Question 170:
+What is equivalent to test step, test scenario and test suite in Selenium.
+Answer
+If you are using Java client driver of Selenium then TestNG test method could be considered equivalent to test step, a test tag could be considered as test scenario and a suite tag could be considered equivalent to a test suite.
+
+Question 171:
+How do I get attribute value of an element in Selenium?
+
+Answer
+You could use getAttribute method
+With Selenium 1.0 -
+        String var = selenium.getAttribute("css=input[name='q']@maxlength");
+        System.out.println(var);
+
+With Selenium 2.0 -
+String var = webDriver.findElement(By.cssSelector("input[name='q']")).getAttribute("maxlength")
+        System.out.println(var);
+
+Question 172:
+How do I do database testing using Selenium?
+Answer
+Selenium does not support database testing but your language binding does. For example while using java client driver you can use java data base connectivity (jdbc) to establish connection to data base, fetch/write data to data base and doing data comparison with front end.
+
+Question 173:
+I completed test execution and now I want to email test report.
+Answer
+If you are using "ant" build tool then you can use "mail" task to deliver your test results. Similar capabilities are available in Continuous Build Integration tools like - Hudson.
+
+
+Question 174:
+How do I make my tests more comprehensible?
+Answer
+Selenium tests which are written as -
+
+        selenium.click("addForm:_ID74:_ID75:0:_ID79:0:box");
+
+Make it tough to understand the element which is being exercised upon.
+Instead of hard coding element locator in tests you should externalize them. For example with java you can use properties file to contain element locators and then locator reference is given in test script. Following this approach previous test step would look as -
+
+      selenium.click(PolicyCheckbox);
+
+And this is far more comprehensible.
+
+
+Question 175:
+Why should I use Page Object?
+Answer
+Page object is a design pattern which distinguishes the code carrying out operations on page and code which carries out tests (assertion/verification). While implementing page object you abstract functioning of a page or part of it in a dedicated "Classs" which is then used by test script to perform actions on page and reach a stage when actual test could be performed.
+
+Advantage of using page object is the fact that if application lay out changes then you only need to modify the navigation part and test would function intact.
+
+1. How do you start Selenium RC?
+Ans: 
+simple way  to start selenum rc is
+ java -jar selenium-server.jar
+ to run a suite of Selenese scripts in a browser
+java -jar selenium-server.jar -htmlSuite 
+2. How do you connect Data base from selenium
+Ans: 
+Connecting to database is lanuage dependent. if we are using Java
+A Connection object represents aconnection with a database. When we connect to a database by using connection method, we create a Connection Object, which represents theconnection to the database. An application may have one or more than one connections with a single database or many connections with different databases.
+We can use the Connection object for the following things:
+1). It creates the Statement, PreparedStatement and CallableStatement objects for executing the SQL statements.
+2). It helps us to Commit or roll back a jdbc transactionn.
+3). If you want to know about the database or data source to which you are connected then the Connection object gathers information about the database or data source by the use of DatabaseMetaData.
+4). It helps us to close the data source. The Connection.isClosed() method returns true only if the Connection.close() has been called. This method is used to close all the connection.
+Firstly we need to to establish the connection with the database. This is done by using the method DriverManager.getConnection(). This method takes a string containing a URL. The DriverManager class, attempts to locate a driver that can connect to the database represented by the string URL. Whenever the getConnection() method is called the DriverManager class checks the list of all registered Driver classes that can connect to the database specified in the URL.
+Syntax:
+String url = "jdbc: odbc: makeConnection";
+Connection con = DriverManager.getConnection(url, "userID", "password");
+
+3. How do you handle Ajax controls using selenium?
+Eg. By typing in search engine how do you capture the auto suggestion 
+4. How do you select the 2nd item in a List box or drop down.
+Ans:
+selenium.select(selectLocator, optionLocator)
+selectLocator - a locator for the select element
+optionLocator - a locator for the option element
+
+5. How do you identify an object using selenium?
+Ans:
+isElementPresent(String locator)
+isElementPresent takes a locator as the argument and if found returns a boolean value of True.
+6. How do you capture an element loading after the page load?
+Ans:
+ provide a time to check the element( in seconds) Like :
+public void waitForElementPresent(String element, int timeout) throws Exception { 
+for (int second = 0;; second++) {
+if (second >= timeout)
+fail("Timeout. Unable to find the Specified element" + element);
+try {
+       if (selenium.isElementPresent(element)) break;
+} catch (Exception e) { }
+Thread.sleep(1000);
+}
+}
+7. Brief about your framework
+8. What is the difference between assert and Verify Commands?
+Ans:
+There are two mechanisms for validating elements that are available on the application under test. The first is assert: this allows the test to check if the element is on the page. If it is not available, then the test will stop on the step that failed. The second is verify: this also allows the test to check whether the element is on the page, but if it isn't, then the test will carry on executing.
+9. Explain about your reporting method
+10.How do you verify an object presented in multiple pages.
+Ans:
+Check on each page
+assertTrue(selenium.isElementPresent(locator));
+11.What are the locators available in Selenium?
+Ans:
+ID
+Name
+Filters
+DOM
+CSS
+Xpath
+12.What is the difference between single and double slash in Xpath
+Ans:
+ /
+ start selection from the document node
+allows you to create 'absolute' path expressions
+e.g. "/html/body/p" matches all the paragraph elements
+ //
+ start selection matching anywhere in the docume
+allows you to create 'relative' path expressions
+e.g. "//p" matches all the paragraph elements
+
+13.Brief about Selenium Client.
+14.Did you write any User Extensions.
+User extensions are stored in a separate file that we will tell Selenium IDE or Selenium RC to use. Inside there the new function will be written in JavaScript.
+Because Selenium's core is developed in JavaScript, creating an extension follows the standard rules for prototypal languages. To create an extension, we create a function  in the following design pattern.
+Selenium.prototype.doFunctionName = function(){
+.
+}
+The "do" in front of the function name tells Selenium that this function can be called  as a command for a step instead of an internal or private function.
+ 
+ 
+15.What are all things can not be done through selenium IDE
+Ans:
+Easy record and playback.
+Intelligent field selection will use IDs, names, or XPath as needed.
+Autocomplete for all common Selenium commands.
+Walk through tests.
+Debug and set breakpoints.
+Save tests as HTML, Ruby scripts, or any other format.
+Support for Selenium user-extensions.js file.
+Option to automatically assert the title of every page.
+
+Advantages: Selenium IDE is the only flavor of Selenium, which allows you to record user action on browser window. It can also record user actions in most of the popular languages like Java, C#, Perl, Ruby etc. This eliminates the need of learning new vendor scripting language. For executing scripts created in these languages, you will need to use Selenium Remote Control. If you do not want to use Remote Control than you will need to create your test scripts in HTML format.
+Disadvantages: Biggest drawback of Selenium IDE is its limitation in terms of browser support. Though Selenium scripts can be used for most of the browser and operating system, Scripts written using Selenium IDE can be used for only Firefox browser if it is not used with Selenium RC or Selenium Core.
+16.Brief about Selenium Grid.
+Ans:
+Selenium Grid is a tool that dramatically speeds up functional testing of web-apps by leveraging your existing computing infrastructure. It allows you to easily run multiple tests in parallel, on multiple machines, in an heterogeneous enviroment. 
+Based on the excellent Selenium web testing tool, Selenium Grid allows you to run multiple instances of Selenium Remote Control in parallel. Even better, it makes all these Selenium Remote Controls appear as a single one, so your tests do not have to worry about the actual infrastructure. Selenium Grid cuts down on the time required to run a Selenium test suite to a fraction of the time that a single instance of Selenium instance would take to run.
+17.Is it possible to start the Remote engine more than once in an instance.
+18. How to use selenium for performance testing 
+19. How to start the selenium server from your language class?
+Ans:
+try {
+      seleniumServer = new SeleniumServer();
+      seleniumServer.start();
+} catch (Exception e) {
+      e.printStackTrace();
+}
+20. Is it possible to handle multiple pop ups in selenium?
+22. Give the benefits of SQL Stored procedure in selenium?
+23.What are the difficulties or challenge you faced in selenium?
+24. How do you check a single test method in multiple browser?
+25. What is the annotation you use to connect the Spread sheet in Junit.
+26.Brief about Junit annotations.
+27.How can we speed up the selenium script execution?
+28.If the default port of selenium is busy then which port you use?
+29.Explain types of SQL joins.
+30.How do you handle the secured connection error in HTTPS?
+31.How do you compare two strings or values are same.
+
+
+1.  Difference between Absolute path & Relative path.
+Absolute path will start with root path (/) and Relative path will from current path (//)
+Click Here for Detailed Answer
+
+2.  Tell me some TestNG Annotations.
+@Test,@Parameters,@Listeners,@BeforeSuite,@AfterSuite,@BeforeTest,@AfterTest,
+@DataProvider,@BeforeGroups,@AfterGroups,@BeforeClass,@AfterClass,
+@BeforeMethod,@AfterMethod,@Factory
+http://testng.org/doc/documentation-main.html#annotations
+
+3.  What are desiredcapabilities?
+Desired Capabilities help to set properties for the Web Driver. A typical use case would be to 
+set the path for the Firefox Driver if your local installation doesn't correspond to the default 
+settings.
+https://code.google.com/p/selenium/wiki/DesiredCapabilities
+
+4.  Difference between Selenium RC and Selenium
+ Web driver.
+Selenium RC
+Selenium Web driver
+
+
+Selenium RC's architecture is way more complicated.
+
+
+
+Web Driver's architecture is simpler than Selenium RC's. 
+Selenium RC is slower since it uses a JavaScript program called Selenium Core. This Selenium Core is the one that directly controls the browser, not you. 
+Web Driver is faster than Selenium RC since it speaks directly to the browser uses the browser's own engine to control it. 
+Selenium Core, just like other JavaScript codes, can access disabled elements. 
+Web Driver interacts with page elements in a more realistic way. 
+Selenium RC's API is more matured but contains redundancies and often confusing commands. 
+Web Driver's API is simpler than Selenium RC's. It does not contain redundant and confusing commands. 
+Selenium RC cannot support the headless HtmlUnit browser. It needs a real, visible browser to operate on. 
+Web Driver can support the headless HtmlUnit browser. 
+Selenium RC Has Built-In Test Result Generator. Selenium RC automatically generates an HTML file of test results.  
+Web Driver has no built-in command that automatically generates a Test Results File. 
+Selenium RC needs the help of the RC Server in order to do so. 
+web Driver directly talks to the browser
+Selenium RC can support new browsers
+It cannot readily support new browsers
+
+5.  Difference between Web driver listener and
+ TestNG Listener.
+TestNG and Web driver Listener have different interfaces to implement and call them. They both 
+modify respective behaviour. You can use Listeners in Annotation. Below 2 URL gives the
+ detailed  list of listener and their interfaces.
+http://testng.org/doc/documentation-main.html#testng-listeners
+http://selenium.googlecode.com/git/docs/api/java/org/openqa/selenium/support/events/
+AbstractWebDriverEventListener.html
+
+
+6. Describe your framework.
+Click Here for Hybrid Framework
+
+
+7.  Which is the best way to locate an element?
+Finding elements by ID is usually going to be the fastest option, because at its root, it eventually calls down to document.getElementById(), which is optimized by many browsers.
+
+Finding elements by XPath is useful for finding elements using very complex selectors, and is the most flexible selection strategy, but it has the potential to be very slow, particularly in IE. In IE 6, 7, or 8, finding by XPath can be an order of magnitude slower than doing the same in Firefox. IE provides no native XPath-over-HTML solution, so the project must use a JavaScript XPath implementation, and the JavaScript engine in legacy versions of IE really is that much slower.
+
+
+If you have a need to find an element using a complex selector, I usually recommend using CSS Selectors, if possible. It's not quite as flexible as XPath, but will cover many of the same cases, without exhibiting the extreme performance penalty on IE that XPath can.
+
+8.  Why we refer Firefox driver to the web driver
+ inheritance. 
+web Driver driver = new FireFoxDriver();
+WebDriver is an interface which contain several abstract methods such as get(...), findElamentBy(...) etc.
+We simply create reference of web Driver and we can assign objects (Firefox driver, CromeDriver, IEDriver, Andriod driver etc) to it.
+Ex :
+WebDriver driver = new FireFoxDriver();-----------(1)
+If we are using (1) we can do the same thing by using
+FireFoxDriver driver = new FireFoxDriver();---------(2)
+We can use (1) and (2) for same purpose but if we want to switch to another browser in same program
+then again we have to create the object of other class as for example
+CromeDriver driver = new CromeDriver();.
+creating object of several class is not good. So we create the reference of WebDriver and 
+we assign the objects of another class as for example
+WebDriver driver; // it is created only one time in the program
+driver = new FireFoxDriver();// any where in the program
+driver = new CromeDriver(); // any where in the program
+
+9.  What are the features of TestNG?
+TestNG is a testing framework designed to simplify a broad range of testing needs, from 
+unit testing (testing a class in isolation of the others) to integration testing (testing entire 
+systems made of several classes, several packages and even several external frameworks,
+ such as application servers). You can use test suite,annotations, automatically generation
+ of report and much more.
+
+10.   What is the difference between thread.Sleep()
+ and selenium. Set Speed ("2000")?
+If the application is taking time to load the page then we use selenium.waitforpageload(" "). This command is doesn't wait upto the given time whenever the page load is completed.
+If the application is taking time to refresh the page, then we use Thread. Sleep ( ).it is a standard wait it simply wait to the given time.
+selenium.setSpeed
+ 1. Takes a single argument in string format
+ Ex: selenium.setSpeed("2000") - will wait for 2 seconds
+ 2. Runs each command in after setSpeed delay by the number of milliseconds mentioned in set Speed.
+ thread.sleep 
+ 1. Takes a single argument in integer format
+ ex: thread. Sleep(2000) - will wait for 2 seconds
+ 2. Waits for only once at the command given at sleep.
+
+11.   In what situation selenium finding element 
+get fails?
+ú         Element loading issue 
+ú         Dynamic id of web element
+
+12.   What is the difference between "GET" and 
+"NAVIGATE" to open a web page in selenium 
+web driver?
+Get method will get a page to load or get page source or get text that's all whereas navigate
+ will guide  through the history like refresh, back, forward.For example if we want to move 
+forward and do some functionality and back to the home page this can be achieved 
+through navigate() only. driver.get will wait  till the whole page gets loaded and driver.navigate 
+will just redirect to that page and will not wait
+
+13.   Please tell me the difference b/w implicitly 
+Wait and Explicit wait.
+Implicit Wait sets internally a timeout that will be used for all consecutive Web Element searches. It will try lookup the element again and again for the specified amount of time before throwing a NoSuchElementException if the element could not have been found. It does only this and can't be forced into anything else - it waits for elements to show up.
+
+
+Explicit Wait or just Wait is a one-timer used by you for a particular search. It is more extendible in the means that you can set it up to wait for any condition you might like. Usually, you can use some of the prebuilt Expected Conditions to wait for elements to become clickable, visible, invisible, etc., or just write your own condition that suits your needs.
+
+
+
+
+
+14.   How we can retrieve the dynamically changing 
+Ids? When we login Facebook the login label's id 
+changes dynamically thus resulting in failure.
+We have a hierarchy of locators and Facebook Is dynamic in nature,so we are not able to 
+use "id" for  identification for after that we have remaining 7 locator's for that :2. xpath ()..
+3. name..4. css.. 5. link text.. 6. partiallinktext...7.tag name. so u can use any one for
+ identifying it. Most probably u can use "xpath" or  "css-locator" and if there r tag then 
+link text or partial-link text. it depend on u . But we never use id's in Ajax application
+ because it's not possible.
+
+15.What is the difference between driver.Close()
+ and driver.Quit () method?
+Close() - It is used to close the browser or page currently which is having the focus.
+Quit() - It is used to shut down the web driver instance or destroy the web driver instance
+(Close all the windows)
+
+16.   How to scroll web element?--not browser-
+FirefoxProfile profile=new FirefoxProfile();
+profile.setEnableNativeEvents(true);
+WebDriver driver=new FirefoxDriver(profile);
+driver.navigate("http://jqueryui.com/draggable/");
+Thread.sleep(6000L);
+WebElement element=driver.findElement(By.xpath("//div[@id='draggable']"));
+Actions actn=new Actions(driver);
+actn.dragAndDropBy(element, 50, 50).build().perform();
+}
+
+
+
+17.   What is the basic use of Firefox profiles and 
+how can we use them using selenium?
+A profile in Firefox is a collection of bookmarks, browser settings, extensions, passwords, 
+and history; in short, all of your personal settings. 
+We use them to change user agent, changing default download directory, changing versions etc.
+http://code.google.com/p/selenium/wiki/FirefoxDriver
+
+18.   Customize the name of file going to be 
+downloaded?
+You have to download AUTO IT.exe file and has to be install
+and later you have create .au3 file (in this file you have to specify the commands in
+ VB script  like your file  name, where have to save, it will be easy may be 3 or 4 steps ) 
+using AUTOIT...then right click the .au3 file you have to compile ....after that you will 
+get the .exe file with the name of .au3 file ..In eclipse you will give the code like this
+<----ProcessBuildder ps = new ProcessBuilder("path of the .exe file of au3") .start();--->
+
+
+19.   How to handle internationalisation through
+ web driver?
+FirefoxProfile profile = new FirefoxProfile(); 
+profile.set Preference("intl.accept_languages","jp"); 
+Web driver driver = new FirefoxDriver(profile); driver.get(google.com) will open google in 
+Japanese Lang
+
+20.   How to overcome same origin policy through 
+web driver?
+ú         Proxy server. 
+DesiredCapabilities capability=new DesiredCapabilities.firefox();
+capability.setCapability(CapabilityType.PROXY,"your desire proxy")
+WebDriver driver=new FirefoxDriver(capability);
+
+21. How to put text in Facebook search box using 
+selenium web driver.
+ú         driver.findElement(By.xpath("//div[contains(@class, '_586i')]")).sendKeys("abc");
+
+
+22. Difference between flex and flash application.
+In flash there is no code just based on creativity(design) we will complete the 
+work(time consuming process) whereas flex contain some small functions 
+which is integrated with mxml,PHP..(no tool is there to develop
+ flex we want to use the properties of css and style sheet)
+
+23. What is Error Collector in TestNG? 
+What is its use?
+This class allows the collection of errors during the process of retrieving the 
+test data for the test method parameters
+http://testngdatabind.sourceforge.net/apidocs/net/sf/testng/databinding/core/error/
+ErrorCollector.html
+
+
+24. How can we get the font size, font color, 
+font type used  for a particular text on a web
+page using Selenium web driver?
+driver.findelement(By.Xpath("Xpath ").getcssvalue("font-size);
+driver.findelement(By.Xpath("Xpath ").getcssvalue("font-colour);
+driver.findelement(By.Xpath("Xpath ").getcssvalue("font-type);
+driver.findelement(By.Xpath("Xpath ").getcssvalue("background-colour);
+
+25. How to run tests in multiple browser parallel?
+ Is there  any other option other than selenium grid?
+Testng has provided us an option through its Parameter feature, through which we could run same test script written in WebDriver  parallel to all our installed Browser on our system.
+Scripts and Steps to execute Script 
+1- Go to your Eclipse Project -> Right Click on Project -> Click On New-> others-> Pop up would appear-> Click on XML -> Select XML File -> Click on Next -> New XML File pop up would appear-> Enter the name of XML and click on Finish
+2- Your XML file would appear like this
+<!-?xml version="1.0? encoding="UTF-8??>->
+Replace this with this code
+<suite name="Suite1? verbose="1? parallel="tests">
+<test name="Generic test" >
+<parameter name="browser" value="FF"></parameter>
+<classes>
+<class name="com.testng.Test" />
+</classes>
+</test>
+<test name="Generic test_ie" >
+<parameter name="browser" value="IE"></parameter>
+<classes>
+<class name="com.testng.Test" />
+</classes>
+</test>
+<!-suite>->
+Download xml file from here
+Now understand the tags of XML that I have marked Bold in XML file
+Parallel:  this is being used to run tests parallely in different browser
+suite name: This is the name of your test suit
+test name : kind of test cases (you may give name like this Regression, Sanity,Smoke, or any thing that make you to make better test execution ) like i have given name to this test case as Generic test
+Classes: name of class that you want to add in this test execution
+Most important one is
+<parameter name="browser" value="FF"></parameter> Here I have browser as parameter name(u can have any name to it) and Value here I have given FF for Firefox,IE for Internet Explorer, and Chrome for Chrome Browser.
+3- Now its time to understand how we have to use parameter name in Java program. Since parameter is defined for Browsers. Since we are trying to use Testng framework we would  write two function first one to launch Browser and Second one to close Browser
+Create new java class in your Java Project
+Steps to create new java class:: right click on project ||New|| Click on Class||Enter the name of class and Hit on finish.
+Name of my java class is Browser.java
+
+package com.testng;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Parameters;
+//import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+public class Browser {
+WebDriver driver;
+@BeforeMethod   /* The annotated method will be run before all tests in this suite have run */
+//browser is the name of parameter that we have used in xml
+@Parameters("browser")  /* this annotation is used to insert parameter in test*/
+public void openBroswer(String browser){
+/*Comparing the value of parameter name if this is FF then It would launch Firefox and script that would run is as follows */
+if(browser.equalsIgnoreCase("FF"))
+{
+System.out.println("Firefox driver would be used");
+driver = new FirefoxDriver();
+}
+else
+{
+System.out.println("Ie webdriver would be used");
+driver = new InternetExplorerDriver();
+}
+}
+@AfterMethod /* this annotation would run once test script execution would complete*/
+public void closeBrowser()
+{try{
+driver.wait(15000);
+}
+catch(Exception e){}
+driver.close();
+driver.quit();
+}
+}
+4- Since we have created Browser class in which we have used the parameter defined in XML, Now we should create one more class that is our Test class, This class would inherit Browser class for launching Browser before executing scripts under @Test annotation and for Closing Browser once execution of scipt under @Test annotation get completed.
+here I have given the name of this class is Test
+
+package com.testng;
+import org.openqa.selenium.By;
+import org.testng.Reporter;
+import org.testng.annotations.Test;
+@Test
+public class Test extends Browser{
+public void test(){
+/* in this test we are searching selenium in Google and clicking on first link in Google Result*/
+driver.get("http://www.google.com");
+driver.findElement(By.id("gbqfq")).sendKeys("selenium");
+//driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+try {
+Thread.sleep(5000);
+} catch (InterruptedException e) {
+// TODO Auto-generated catch block
+e.printStackTrace();
+}
+driver.findElement(By.xpath("//ol[@id='rso']/li[1]//h3/a")).click();
+try {
+Thread.sleep(5000);
+} catch (InterruptedException e) {
+// TODO Auto-generated catch block
+e.printStackTrace();
+}
+}
+}
+5- Now its time to execute Test-Case
+Steps:
+Right Click on Test.java file and -> Run As -> Run Confinguration -> In pop up Go Testng -> Right Click on Testng and Click on New -> Give name to your Run Configuration, Browser Class and select your Xml just by Browsing in front of Suit -> hit on Finish and this would run your test
+
+Hope this post would help you to run parallel WebDriver test case .
+
+26. How to prepare Customized html Report using
+ TestNG  in hybrid framework.
+Below are the 3 ways:
+ Junit: with the help of ANT.
+ TestNG: using inbuilt default.html to get the HTML report. Also XST reports from ANT, 
+Selenium, TestNG combination.
+ Using our own customized reports using XSL jar for converting XML content to HTML.
+
+27. "What's the hierarchy of TestNG annotations? 
+Explain me about annotation hierarchy & execution
+ order?
+org.testng.annotations.Parameters (implements java.lang.annotation.Annotation)
+org.testng.annotations.Listeners (implements java.lang.annotation.Annotation)
+org.testng.annotations.Test (implements java.lang.annotation.Annotation)
+org.testng.annotations.AfterMethod (implements java.lang.annotation.Annotation)
+org.testng.annotations.BeforeTest (implements java.lang.annotation.Annotation)
+org.testng.annotations.BeforeMethod (implements java.lang.annotation.Annotation)
+org.testng.annotations.Optional (implements java.lang.annotation.Annotation)
+org.testng.annotations.AfterTest (implements java.lang.annotation.Annotation)
+org.testng.annotations.Guice (implements java.lang.annotation.Annotation)
+org.testng.annotations.BeforeGroups (implements java.lang.annotation.Annotation)
+org.testng.annotations.ExpectedExceptions (implements java.lang.annotation.Annotation)
+org.testng.annotations.TestInstance (implements java.lang.annotation.Annotation)
+org.testng.annotations.NoInjection (implements java.lang.annotation.Annotation)
+org.testng.annotations.AfterSuite (implements java.lang.annotation.Annotation)
+org.testng.annotations.AfterClass (implements java.lang.annotation.Annotation)
+org.testng.annotations.AfterGroups (implements java.lang.annotation.Annotation)
+org.testng.annotations.DataProvider (implements java.lang.annotation.Annotation)
+org.testng.annotations.BeforeSuite (implements java.lang.annotation.Annotation)
+org.testng.annotations.BeforeClass (implements java.lang.annotation.Annotation)
+org.testng.annotations.Factory (implements java.lang.annotation.Annotation)
+org.testng.annotations.Configuration (implements java.lang.annotation.Annotation)
+org.testng.annotations.ObjectFactory (implements java.lang.annotation.Annotation)
+
+28. How the TestNG interacts with Selenium Core? 
+Explain me steps and internal architecture?"
+http://www.guru99.com/all-about-testng-and-selenium.html
+
+29. Is it possible test web services using selenium?
+Using Jmeter we can test how one website is talking to each other means time taken to 
+send data, feeds, messages from one website to other website. Jmeter does a nice job 
+of doubling for performance and api tests.
+
+30. How to refresh a page without using context 
+click?
+1.Using sendKeys.Keys method
+2.Using navigate.refresh() method
+3.Using navigate.refresh() method
+4.Using get() method
+5.Using sendKeys() method
+1.Using sendKeys.Keys method
+driver.get("https://accounts.google.com/SignUp"); 
+driver.findElement(By.id("firstname-placeholder")).sendKeys(Keys.F5); 
+
+2.Using navigate.refresh() method
+driver.get("http://ruchi-myseleniumblog.blogspot.in/2013/12/100-selenium-interview-questions.html"); 
+driver.navigate().refresh(); 
+
+3.Using navigate.to() method
+driver.get("http://ruchi-myseleniumblog.blogspot.in/2014/01/selenium-hybrid-framework-using.html"); 
+driver.navigate().to(driver.getCurrentUrl()); 
+
+4.Using get() method
+driver.get("http://ruchi-myseleniumblog.blogspot.in/2013/12/basic-core-java-interview-questions.html"); 
+driver.get(driver.getCurrentUrl()); 
+
+5.Using sendKeys() method
+driver.get("https://accounts.google.com/SignUp"); 
+
+driver.findElement(By.id("firstname-placeholder")).sendKeys("\uE035");
+
+31. Can u send a code for printing in selenium?
+There are two cases: 
+Case1. Any hyperlink/button on a web page, n clicking that link/button a print dialog box 
+opens. (Performing an action on web page) 
+Case2.or do u want to open print dialog box within ur own script, not by performing any 
+action on web page.
+So If Case 1: just a call for WebElement.click() event will work to open it. 
+If Case 2: Call a Printer Job object (Use Awt API). 
+For code: Google it. 
+http://code.google.com/p/selenium/issues/detail?id=1815
+
+32. How to find broken images in a page using 
+Selenium Web driver.
+1. Get xpath and then using tag name; get all the links in the page
+2. Click on each and every link in the page 
+3. In the target page title, look for 404/500 error.
+package programs;
+
+import java.util.List;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class findbrokenimages {
+ static int invalidimg;
+ static WebDriver driver ;
+ public static void main(String[] args) {
+  try {
+   driver = new FirefoxDriver();
+   driver.get("http://ruchi-myseleniumblog.blogspot.in");
+   invalidimg = 0;
+   List allImages  = driver.findElements(By.tagName("img"));
+   System.out.println("Total  images are " + allImages.size());
+   for (int i = 0; i < allImages.size(); i++) {
+    WebElement img = (WebElement) allImages.get(i);
+    if (img != null) {
+     verifyimgActive(img);
+    }
+   }
+  
+   System.out.println("Total invalid images are " + invalidimg);
+   driver.quit();
+  } catch (Exception e) {
+   e.printStackTrace();
+   System.out.println(e.getMessage());
+  }
+ }
+
+
+
+ public static void verifyimgActive(WebElement img) {
+  try {
+   HttpResponse response = new DefaultHttpClient().execute(new HttpGet(img.getAttribute("src")));
+     if (response.getStatusLine().getStatusCode() != 200)
+    invalidimg++;
+   }
+  catch (Exception e) {
+   e.printStackTrace();
+  }
+ }
+}
+33. How to handle Ajax popup window?
+By using getWindowHandles() and obj.switchTo.window(windowid) we can handle popups using 
+explicit wait and driver.swtchT0.window("name") commands for your requirements.
+
+34. How to handle auto complete box in web driver?
+By typing in box and capturing list elements
+driver.findElement(By.id("your searchBox")).sendKeys("your partial keyword");
+Thread.sleep(3000);
+List <WebElement> listItems = driver.findElements(By.xpath("your list item locator"));
+listItems.get(0).click();
+driver.findElement(By.id("your searchButton")).click();
+
+35. How to get the name of browser using Web Driver?
+public class JsExecute
+{
+WebDriver driver;
+JavascriptExecutor js;
+@Before
+public void setUp() throws Exception
+{
+driver=new FirefoxDriver();
+driver.get("http://www.google.com");
+}
+@Test
+public void test()
+{
+JavascriptExecutor js = (JavascriptExecutor) driver;
+System.out.println(js.executeScript("return navigator.appCodeName"));
+}}
+OR
+String s = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent;");
+System.out.println("Browser name : " + s);
+
+36. How to handle colors in web driver?
+Use getCssValue(arg0) function to get the colors by sending 'color' string as an argument.
+Example 
+String col = driver.findElement(By.id(locator)).getCssValue("color");
+
+37. How to pass parameters from testng.xml into
+ test case.
+package programs;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+public class Parallelexecution {
+
+ private WebDriver driver = null;
+
+ @BeforeTest
+ @Parameters({ "BROWSER" })
+ public void setup(String BROWSER) {
+  System.out.println("Browser: " + BROWSER);
+
+  if (BROWSER.equals("FF")) {
+   System.out.println("Firefox Browser is selected");
+   driver = new FirefoxDriver();
+  } else if (BROWSER.equals("IE")) {
+   System.out.println("Internet Explorer Browser is selected");
+   driver = new InternetExplorerDriver();
+  } else if (BROWSER.equals("HU")) {
+   System.out.println("Html Unit Browser is selected");
+   driver = new HtmlUnitDriver();
+  } else if (BROWSER.equals("CH")) {
+   System.out.println("Google chrome Browser is selected");
+   driver = new ChromeDriver();
+  }
+ }
+
+ @Test
+ public void testParallel() throws Exception {
+  driver.get("http://ruchi-myseleniumblog.blogspot.in/2013/12/100-selenium-interview-questions.html");
+
+ }
+}
+38. How to get text from captcha image??
+driver.findElement(By.xpath(".//*[@id='SkipCaptcha']")).click();
+String attr = ie.findElement(By.xpath(".//*[@id='SkipCaptcha']")).getAttribute("value");
+System.out.println("The value of the attribute 'Name' is " + attr);
+
+39. Is there a way to click hidden LINK in web driver?
+String Block1 = driver.findElement(By.id("element ID"));
+JavascriptExecutor js1=(JavascriptExecutor)driver;
+js1.executeScript("$("+Block1+").css({'display':'block'});");
+
+40. What Class Extends Web Driver?
+ú   AndroidDriver, ChromeDriver, EventFiringWebDriver, FirefoxDriver, HtmlUnitDriver, 
+InternetExplorerDriver, IPhoneDriver, PhantomJSDriver, RemoteWebDriver, SafariDriver
+
+41. What are the APIs that support Web Driver?
+ú         API are  nothing but collection of all selenium commands for Locating UI Elements 
+(WebElements),Fetching a Page,User Input  etc.
+
+42. How to disable cookies in browser.
+ú         Using deleteAllVisibleCookies() in selenium
+
+43. "We have heard about frameworks well it can be
+ broadly classified into these TDD, BDD and ATDD frameworks .What's the Difference?"
+ú         For Details please see: http://assertselenium.com/2012/11/05/difference-between-tdd-bdd-atdd/
+
+44. How to change user agent in Firefox by selenium
+ web driver.
+FirefoxProfile profile = new FirefoxProfile();
+profile.setPreference("general.useragent.override", "some UA string");
+Web Driver driver = new FirefoxDriver(profile);
+
+45. What is Selenese?
+Selenese is HTML language based command, which is used in Selenium IDE.
+
+46. Differences between QTP and selenium.
+1) Selenium generates a proxy while starting browser. QTP does not
+2) QTP uses only Vb script. Selenium is available in many languages
+3) QTP is paid and selenium is free.
+4) You can run script from a particular line in QTP but in selenium, you cannot.
+5) Selenium works on all browsers. QTP only works on IE, mozilla. Support from chrome has been introduced lately.
+6) QTP is more organized and user friendly
+7) Selenium requires more technical skills
+8) QTP can also be used on desktop based applications but selenium cannot be used
+
+47. What is the MOST challenging test problem in my 
+career in Automation?
+In my career 
+ú         Changing XPATHS' between testing server and production server-by keeping generic xpath
+ú         Keep separate property files for production and UAT
+ú         automating flash apps
+ú         Mobile Automation
+
+48. "Suppose developer changed the existing image to 
+new image with same xpath. Is test case pass or fail?"
+ú         Pass
+
+49. How to handle network latency using selenium? 
+ú         Using driver.manage.pageLoadingtime for network latency
+
+50. How does u handle dynamic elements without using
+ xpath (with example?)
+ú         By using classname or css.
+
+51. What are the different types of driver implementation?
+ú         AndroidDriver, AndroidWebDriver, ChromeDriver, EventFiringWebDriver, FirefoxDriver, HtmlUnitDriver, InternetExplorerDriver, IPhoneDriver, IPhoneSimulatorDriver, RemoteWebDriver, SafariDriver, WebDriverBackedSelenium
+
+52. Code for Opening Firefox browser?
+ú         Webdriver driver=new FireFoxdriver();
+
+53. Which repository you have used to store the test
+ scripts?
+I have created scripts in excel file and store them in Test cases folder under src .
+
+54. How to work with radio button in web driver?
+We can select the value from the drop down by using 3 methods.
+
+selectByVisibleText - select by the text displayed in drop down
+selectByIndex  - select by index of option in drop down
+selectByValue  - select by value of option in drop down
+
+<select id="44"> <option value="1">xyz</option>
+ <option value="2">abc</option>
+ <option value="3">pqr</option>
+</select>
+
+WebElement e = driver.findElement(By.id("44"));
+Select selectElement=new Select(e);
+// both of the below statements will select first option in the weblist
+selectElement.selectByVisibleText("xyz");  
+selectElement.selectByValue("1");
+
+55. How to work with dynamic web table?
+You can get the total number of <tr> tags within a <td> tag by giving the xpath of the
+ <td> element by using  this function -
+List<WebElement> ele = driver.findElements(By.xpath("Xpath of the table"));
+Now you can use a for each loop to loop through each of the <tr> tags in the above list 
+and then read each  value by using getText() method.
+
+56. Detail about TestNG Test Output folder.
+It is the directory where reports are generated. Every time tests run in a suite, TestNG 
+creates index.html and  other files in the output directory.
+
+57. In frame if no frame Id as well as no frame
+ name then which attribute I should consider 
+throughout our script.
+You can go like this.....driver.findElements(By.xpath("//iframe"))...
+Then it will return List of frames then switch to each and every frame and search for
+ the locator which you want then break the loop
+
+58. What is object repository?
+It is collection of object names their properties, attributes and their values .It maye be
+ excel, XML,property file or text file
+
+59. TestNG vs. Junit?
+Advantages of TestNG over Junit
+?         In Junit we have to declare @BeforeClass and @AfterClass which is a constraint where as in TestNG there is no constraint like this.
+?         Additional Levels of setUp/tearDown level are available in TestNG like @Before/AfterSuite,@Before/AfterTest and @Before/AfterGroup
+?         No Need to extend any class in TestNG.
+?         There is no method name constraint in TestNG as in Junit. You can give any name to the test methods in TestNG
+?         In TestNG we can tell the test that one method is dependent on another method where as in Junit this is not possible. In Junit each test is independent of another test.
+?         Grouping of testcases is available in TestNG where as the same is not available in Junit.
+?         Execution can be done based on Groups. For ex. If you have defined many cases and segregated them by defining 2 groups as Sanity and Regression. Then if you only want to execute the "Sanity" cases then just tell TestNG to execute the "Sanity" and TestNG will automatically execute the cases belonging to the "Sanity" group.
+?         Also using TestNG your selenium test case execution can be done in parallel.
+
+60. What is the difference between @before 
+method and @beforeclass.
+In JUnit4 @Before is used to execute set of preconditions before executing a test. 
+ For example, if there is a need to open some application and create a user before 
+executing a test, then this annotation can be used for that method.  Method that is 
+marked with @Before will be executed before executing every test in the class.
+If a JUnit test case class contains lot of tests which all together need a method 
+which sets up a precondition  and that needs to be executed before executing the 
+Test Case class then we can utilise "@BeforeClass" annotation.
+
+61. What are the different Parameters for @Test 
+annotation? 
+Parameters are keywords that modify the annotation's function.
+For more details Go to: http://testng.org/doc/documentation-main.html#parameters
+
+62. Can we run group of test cases using TestNG?
+Test cases in group in Selenium using TestNG will be executed with the below options.
+ If you want to execute the test cases based on one of the group like regression test or smoke test
+ @Test(groups = {"regressiontest", "smoketest"})
+ For more details please see: http://testng.org/doc/documentation-main.html#test-groups
+63. Differences between Selenium web driver, 
+IDE and RC?
+http://qtpselenium.com/selenium-tutorial/difference-between-ide-rc-webdriver/
+Difference details
+Selenium IDE
+Selenium RC
+Webdriver
+Works only on mozilla
+Works on almost all browsers.Does not work on latest version of firefox/IE
+Works on latest versions of almost all browsers - Firefox, IE(6,7,8), OPera, Chrome
+Record and run tool
+No Record and run
+No Record and run
+No server required to start
+Server is required to start
+No server required to start
+Core engine is Javascript based
+Core engine is Javascript based
+Interacts natively with browser application
+Very simple to use. If using User extentoins, you require knowledge on javascript which makes the work a little bit tough.
+Its a simple and small API
+Complex and a bit large API as compared to RC
+Not at all object oriented
+Less Object orinted API
+Purely Object oriented API
+Cannot move mouse with it
+Cannot move mouse with it
+Can move mouse cursor
+Full xpaths have to be appended with 'xapth=\\' syntax
+Full xpaths have to be appended with 'xapth=\\' syntax
+No need to append 'xpath=\\'
+No Listeners
+No Listeners
+Implementation of Listeners is provided
+Cannot test iphone/Android applications
+Cannot test iphone/Android applications
+Can test iphone/Android applications
+Cannot test iphone/Android applications
+Cannot test iphone/Android applications
+Can test iphone/Android applications
+
+64. How to highlight an object like qtp/uft does 
+through selenium and java?
+public void highlightElement(WebDriver driver, WebElement element) {
+for (int i = 0; i < 2; i++)
+{
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: yellow; border: 2px solid yellow;");
+js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "");
+}}
+Call the highlightElement method and pass webdriver and WebElement which you want to highlight as arguments.
+
+65. What are the different assertions in SIDE?
+Assertions are like Accessors, but they verify that the state of the application conforms to what is expected. Examples include "make sure the page title is X" and "verify that this checkbox is checked".
+All Selenium Assertions can be used in 3 modes: "assert", "verify", and "waitFor".
+
+ For example, you can "assertText", "verifyText" and "waitForText". When an "assert" fails, the test is aborted. When a "verify" fails, the test will continue execution, logging the failure. This allows a single "assert" to ensure that the application is on the correct page, followed by a bunch of "verify" assertions to test form field values, labels, etc.
+
+"waitFor" commands wait for some condition to become true (which can be useful for testing Ajax applications). They will succeed immediately if the condition is already true. However, they will fail and halt the test if the condition does not become true within the current timeout setting (see the setTimeout action below).
+66. How to store a value which is text box using 
+web driver?
+driver.findElement(By.id("your Textbox")).sendKeys("your keyword");
+
+67. How to handle alerts and confirmation boxes.
+Confirmation boxes and Alerts are handled in same way in selenium.
+var alert = driver.switchTo().alert();
+alert.dismiss();  //Click Cancel or Close window operation
+alert.accept();   //Click OK
+Handle Confirmation boxes via JavaScript,
+driver.executeScript("window.confirm = function(message){return true;};");
+
+68. How to mouse hover on an element?
+Actions action = new Actions(webdriver);
+WebElement we = webdriver.findElement(By.xpath("html/body/div[13]/ul/li[4]/a"));
+action.moveToElement(we).moveToElement(webdriver.findElement(By.xpath("/expression-here"))).click().build().perform();
+
+69. How to switch between the windows?
+private void handlingMultipleWindows(String windowTitle) {
+            Set<String> windows = driver.getWindowHandles();
+            for (String window : windows) {
+                driver.switchTo().window(window);
+                if (driver.getTitle().contains(windowTitle)) {   return;   }     }     }
+
+
+70. How to switch between frames?
+WebDriver's driver.switchTo().frame() method takes one of the three possible arguments:
+?         A number.
+Select a frame by its (zero-based) index. That is, if a page has three frames, the first frame would be at index "0", the second at index "1" and the third at index "2". Once the frame has been selected, all subsequent calls on the WebDriver interface are made to that frame.
+?         A name or ID.
+Select a frame by its name or ID. Frames located by matching name attributes are always given precedence over those matched by ID.
+?         A previously found WebElement.
+Select a frame using its previously located WebElement.
+Get the frame by it's id/name or locate it by driver.findElement() and you'll be good.
+
+71. What is actions class in web driver?
+Actions class with web Driver help is Sliding element, Resizing an Element, Drag & Drop,
+hovering a mouse, especially in a case when dealing with mouse over menus.
+Actions class with web Driver help is Sliding element, Resizing an Element, Drag & Drop 
+Hovering a mouse, especially in a case when dealing with mouse over menus.
+
+Dragging & Dropping an Element:
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+public class testDragandDrop {
+  public static void main(String[] args) throws InterruptedException {
+   WebDriver driver = new FirefoxDriver();
+  driver.get("http://jqueryui.com/resources/demos/droppable/default.html");  
+  WebElement draggable = driver.findElement(By.xpath("//*[@id='draggable']"));
+  WebElement droppable = driver.findElement(By.xpath("//*[@id='droppable']"));    
+  Actions action = new Actions(driver);  
+action.dragAndDrop(draggable, droppable).perform(); 
+  }
+}
+Sliding an Element:
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+public class testSlider {
+  /**
+  * @param args
+  * @throws InterruptedException 
+  */
+ public static void main(String[] args) throws InterruptedException {
+   WebDriver driver = new FirefoxDriver();
+  driver.get("http://jqueryui.com/resources/demos/slider/default.html");  
+  WebElement slider = driver.findElement(By.xpath("//*[@id='slider']/a"));  
+  Actions action = new Actions(driver);
+  Thread.sleep(3000);
+  action.dragAndDropBy(slider, 90, 0).perform(); 
+  }
+}
+Re-sizing an Element: 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+public class testResizable {
+  public static void main(String[] args) throws InterruptedException {
+   WebDriver driver = new FirefoxDriver();
+  driver.get("http://jqueryui.com/resources/demos/resizable/default.html");
+    WebElement resize = driver.findElement(By.xpath("//*[@id='resizable']/div[3]"));  
+  Actions action = new Actions(driver);
+  action.dragAndDropBy(resize, 400, 200).perform();
+    }
+}
+
+72. Difference between the selenium1.0 and 
+selenium 2.0?
+Selenium 1 = Selenium Remote Control. 
+Selenium 2 = Selenium Web driver, which combines elements of Selenium 1 and Web driver.
+
+73. Difference between find element () and 
+findelements ()?
+findElement() :
+Find the first element within the current page using the given "locating mechanism".
+Returns a single WebElement.
+Syntax: WebElement findElement(By by)
+Ex:
+driver.get("http://ruchi-myseleniumblog.blogspot.in/");  
+WebElement widget = driver.findElement(By .xpath(".//*[@id='BlogArchive1_ArchiveList']"));
+widget.click();
+findElements() :
+Find all elements within the current page using the given "locating mechanism".
+Returns List of WebElements.
+Syntax: 
+        WebElement ullist = driver.findElement(By.className("posts"));
+  List<WebElement> posts = ullist.findElements(By.tagName("li"));
+  System.out.println("List of Posts are Below");
+  for (int i = 0; i < posts.size(); i++) {
+   String post = posts.get(i).findElement(By.tagName("a")).getText();
+
+   System.out.println(post);
+  }
+
+Sample Program:
+package programs;
+
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
+
+public class Sample {
+ WebDriver driver;
+
+ @Test
+ public void test() {
+
+  driver = new FirefoxDriver();
+  driver.get("http://ruchi-myseleniumblog.blogspot.in/");
+  WebElement widget = driver.findElement(By
+    .xpath(".//*[@id='BlogArchive1_ArchiveList']"));
+  WebElement hierarchy = widget.findElement(By.className("hierarchy"));
+  System.out.println("Year is "
+    + hierarchy.findElement(By.className("post-count-link"))
+    .getText());
+  System.out.println("Year-Posts size  is "
+    + hierarchy.findElement(By.className("post-count")).getText());
+  WebElement sublist = hierarchy.findElement(By.className("hierarchy"));
+  System.out.println("Month is "
+    + sublist.findElement(By.className("post-count-link"))
+    .getText());
+  System.out.println("Month-Posts size  is "
+    + sublist.findElement(By.className("post-count")).getText());
+  WebElement ullist = driver.findElement(By.className("posts"));
+  List<WebElement> posts = ullist.findElements(By.tagName("li"));
+  System.out.println("List of Posts are Below");
+  for (int i = 0; i < posts.size(); i++) {
+   String post = posts.get(i).findElement(By.tagName("a")).getText();
+
+   System.out.println(post);
+  }
+  driver.close();
+ }
+
+ 
+}
+
+74. How to take the screen shots in selenium2.0?
+// store screenshots
+ public static void captureScreenShot(String filePath) {
+  File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+    try {
+   FileUtils.copyFile(scrFile, new File(filePath));
+  } catch (IOException e) {
+   // TODO Auto-generated catch block
+   e.printStackTrace();
+   
+  }  
+    }
+
+75. What is the default time for selenium Ide and 
+webdriver?
+Default timeout in selenium ide is 30 seconds.
+For web driver go to below URL:
+http://assertselenium.com/2013/01/29/webdriver-wait-commands/
+
+
+76. Write down scenarios which we can't automate?
+Barcode Reader, Captcha etc.
+
+77. In TestNG I have some test's  Test1-Test2-
+Test3-Test4-Test5I want to run my execution 
+order is Test5-Test1-Test3-Test2-Test4.How 
+do you set the execution order can you explain 
+for that?
+ú         Use priority parameter in @test annotation or TestNG annotations.
+Click Here for Sample Program Code
+
+78. Differences between jxl and ApachePOI.
+ú         jxl does not support  XLSX files
+ú         jxl exerts less load on memory as compared to ApachePOI
+ú         jxl doesn't support rich text formatting while ApachePOI does.
+ú         jxl has not been maintained properly while ApachePOI is more up to date.
+ú         Sample code on Apache POI is easily available as compare to jxl.
+
+
+79. How to ZIP files in Selenium with an Example?
+Click Here for Sample Program Code
+
+80. What is default port no?
+4444
+
+81. If Default port no is busy how to change port no?
+We can use any port number which is valid.. First create an object to remote control configuration. 
+Use 'setPort' method and provide valid port number(4545,5555,5655, etc).. There after attach this 
+remote control configuration object to selenium server..i.e
+RemoteControlConfiguration r= new RemoteControlConfiguration();
+r.setPort(4567);
+SeleniumServer s= new SeleniumServer(r);
+
+82. Does Selenium support https protocols?
+Yes
+83. Majorly asked test scenario with framework in 
+Interviews?
+Majorly asked are:
+ú         Login for Gmail scenario
+ú         Goggle search and finding no of results
+ú         Downloading a file and save it
+ú         Checking mails and deleting them
+ú         Do shopping in flipkart.com
+
+84. Selenium support mobile applications?
+No, it is browser automation tool, it only automates Websites opening in mobile browser, and mobile APPs
+ can't be automated.
+
+85. What is wraps Driver?
+For casting selenium instance to selenium2 (webdriver). wraps driver is used.
+For more details. 
+http://selenium-junit4-runner.btmatthews.com/apidocs/com/btmatthews/selenium
+/junit4/runner/WrappedDriverFactory.html
+
+86. Can you explain Junit Annotation? If there are 
+1000 test cases. 500 test cases are executed. How
+ will you execute the rest of the test cases by using annotation?"
+The annotations generated with JUnit 4 tests in Selenium are:
+ 1. @Before public void method() - Will perform the method() before each test. This method
+ can prepare the  test
+ 2. @Test public void method() - Annotation @Test identifies that this method is a test 
+method.environment,e.g. read input data, initialize the class)
+ 3. @After public void method() - Test method must start with test@Before - this annotation
+ is used for  executing a method before
+
+87. Difference between assert and verify in selenium
+ web driver.
+ú         When an "assert" fails, the test will be aborted. Assert is best used when the
+ check value has to pass for  the test to be able to continue to run log in.
+ú         Where if a "verify" fails, the test will continue executing and logging the failure. 
+Verify is best used to  check non critical things. Like the presence of a
+ headline element.
+
+88. "I want to find the location of ""b"" in the below
+ code, how can I find out without using xpath, name,
+ id, csslocator, index.<div>
+<Button>a</button>
+<Button>b</button>
+<Button>c</button>
+</div>
+    ?      driver.findElement(By.xpath("//*[contains(text(),'b')]")).click(); or
+?        //div/button[contains(text(),'b']
+ú      
+
+89. How to do Applet testing using selenium? 
+Please see below URLs:
+http://docs.codehaus.org/display/FEST/Selenium
+https://code.google.com/p/festselenium/
+
+90.  Name 5 different exceptions you had in 
+selenium web driver and mention what instance 
+you got it and how do you resolve it? 
+ú         WebDriverException
+ú         NoAlertPresentException
+ú         NoSuchWindowException
+ú         NoSuchElementException
+ú         TimeoutException
+  WebDriverException
+ WebDriver Exception comes when we try to perform any action on the non-existing 
+driver.
+WebDriver driver = new InternetExplorerDriver();
+driver.get("http://google.com");
+driver.close();
+driver.quit();
+
+ NoAlertPresentException
+When we try to perform an action i.e., either accept() or dismiss() which is not required 
+at a required place; gives us this exception.
+try{
+driver.switchTo().alert().accept();
+}
+catch (NoAlertPresentException E){
+E.printStackTrace();
+}
+ NoSuchWindowException
+ When we try to switch to an window which is not present gives us this exception:
+WebDriver driver = new InternetExplorerDriver();
+driver.get("http://google.com");
+driver.switchTo().window("Yup_Fail");
+driver.close();
+In the above snippet, line 3 throws us an exception, as we are trying to switch to an 
+window that is not present. NoSuchFrameException
+ Similar to Window exception, Frame exception mainly comes during switching between 
+the frames. 
+WebDriver driver = new InternetExplorerDriver();
+driver.get("http://google.com");
+driver.switchTo().frame("F_fail");
+driver.close();
+In the above snippet, line 3 throws us an exception, as we are trying to switch to an 
+frame that is not present.
+ NoSuchElementException
+ This exception is thrown when we WebDriver doesn't find the web-element in the DOM.
+WebDriver driver = new InternetExplorerDriver();
+driver.get("http://google.com");
+driver.findElement(By.name("fake")).click();
+ TimeoutException
+ Thrown when a command does not complete in enough time.
+All the above exceptions were handled using try catch exceptions.
+
+
+91. How do you manage the code versions in 
+your project? 
+ú         Using SVN or other versioning tools 
+
+92. Latest version of Firefox and selenium in 
+market and the version on which you are testing
+ which you are testing.
+ú         FF Latest version till Dec,2013 for windows7,64 bit :26.0.I use FF 25.0.1 (ur ans. may differ)
+ú         Selenium web driver latest version till dec,2013- 2.39.0 I use selenium 2.37 see latest at
+           http://www.seleniumhq.org/download/
+93. How to know all the methods supported in 
+web driver 
+and its syntax. 
+ú         In Org.openqa.selenium package, web driver interface has all the main methods that can 
+be used in Selenium Web driver
+ú         HTTP://docs.seleniumhq.org/docs/03_webdriver.jsp
+
+94. How do you create html test report from 
+your test script? 
+ I would see below 3 ways:
+ Junit: with the help of ANT.
+ TestNG: using inbuilt default.html to get the HTML report. Also XLST reports from ANT, 
+Selenium, TestNG combination.
+ Using our own customized reports using XSL jar for converting XML content to HTML.
+
+95. List the browsers, OS supported by the Selenium
+Windows Linux Mac
+IE Y NA NA
+FF Y Y Y
+Safari Y N Y
+Opera Y Y Y
+Chrome Y Y Y
+
+96. Can you explain Selenium Mobile Automation?
+Click Here for Sample Program Code
+
+97. What mobile devices it may Support?
+Selenium Web driver supports all the mobile devices operating on Android, IOS operating Systems
+ú         Android - for phones and tablets (devices & emulators)
+ú         iOS for phones (devices & emulators) and for tablets (devices & emulators)
+
+
+98. What is the difference between single and
+ double slash
+ in Xpath?
+Click Here for Answer
+
+99. What are the test types supported by Selenium?
+Selenium supports UI and functional testing. As well it can support performance testing 
+for reasonable load using selenium grid.
+
+100. In what all case we have to go for 
+"JavaScript executor".
+Consider FB main page after you login. When u scrolls down, the updates get loaded. To
+ handle this activity, there is no selenium command. So you can go for javascript to set 
+the scroll down value like driver.executeScript("window.scrollBy(0,200)", "");
